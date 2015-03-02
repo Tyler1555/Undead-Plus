@@ -31,18 +31,18 @@ public class EntityThinker extends EntityMob {
 	public EntityThinker(World world) {
 		super(world);
 		experienceValue = 5;
-		((PathNavigateGround)this.getNavigator()).func_179688_b(true); //Sets door breaking
+		//((PathNavigateGround)this.getNavigator()).func_179688_b(true); //Sets door breaking
 		tasks.addTask(0, new EntityAISwimming(this));
-		tasks.addTask(1, new EntityAIBreakDoor(this));
-		tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 0.35D, false));
-		tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityVillager.class, 0.35D, true));
-		tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 0.35D));
-		tasks.addTask(5, new EntityAIMoveThroughVillage(this, 0.35D, false));
-		tasks.addTask(6, new EntityAIOpenDoors(this, true));
-		tasks.addTask(8, new EntityAIWander(this, 0.35D));
+		//tasks.addTask(1, new EntityAIBreakDoor(this));
+		tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
+		tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityVillager.class, 1.0D, true));
+		tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 1.0D));
+		tasks.addTask(5, new EntityAIMoveThroughVillage(this, 1.0D, false));
+		tasks.addTask(0, new EntityAIOpenDoors(this, true));
+		tasks.addTask(8, new EntityAIWander(this, 1.0D));
 		tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8F));
 		tasks.addTask(10, new EntityAILookIdle(this));
-        tasks.addTask(4, new EntityAIFleeSun(this, 0.35D));
+        tasks.addTask(4, new EntityAIFleeSun(this, 1.0D));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
@@ -100,13 +100,13 @@ public class EntityThinker extends EntityMob {
 		return "undeadPlusAudio.mobs.thinker.die";
 	} */
 
-	public EnumCreatureAttribute getCreatureAttribute()
-	{
+	public EnumCreatureAttribute getCreatureAttribute() {
 		return EnumCreatureAttribute.UNDEAD;
 	}
 
-	public void onLivingUpdate()
-	{
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		
 		if (worldObj.isDaytime() && !worldObj.isRemote)
 		{
 			float f = getBrightness(1.0F);
@@ -115,11 +115,9 @@ public class EntityThinker extends EntityMob {
 				setFire(8);
 			}
 		}
-		super.onLivingUpdate();
 	}
 
-	protected Entity findPlayerToAttack()
-	{
+	protected Entity findPlayerToAttack() {
 		EntityPlayer entityplayer = worldObj.getClosestPlayerToEntity(this, 64D);
 
 		if (entityplayer != null && canEntityBeSeen(entityplayer))
@@ -132,19 +130,16 @@ public class EntityThinker extends EntityMob {
 		}
 	}
 
-	protected void entityInit()
-	{
+	protected void entityInit() {
 		super.entityInit();
 		dataWatcher.addObject(16, new Byte((byte)0));
 	}
 
-	public boolean isOnLadder()
-	{
+	public boolean isOnLadder() {
 		return func_40149_l_();
 	}
 
-	public boolean func_40149_l_()
-	{
+	public boolean func_40149_l_() {
 		return (dataWatcher.getWatchableObjectByte(16) & 1) != 0;
 	}
 
