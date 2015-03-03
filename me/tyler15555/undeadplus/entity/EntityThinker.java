@@ -11,6 +11,7 @@ import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAIOpenDoor;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
@@ -31,14 +32,14 @@ public class EntityThinker extends EntityMob {
 	public EntityThinker(World world) {
 		super(world);
 		experienceValue = 5;
-		//((PathNavigateGround)this.getNavigator()).func_179688_b(true); //Sets door breaking
+		((PathNavigateGround)this.getNavigator()).func_179688_b(true); //Sets door breaking
 		tasks.addTask(0, new EntityAISwimming(this));
-		//tasks.addTask(1, new EntityAIBreakDoor(this));
+		tasks.addTask(1, new EntityAIBreakDoor(this));
 		tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
 		tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityVillager.class, 1.0D, true));
 		tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 1.0D));
 		tasks.addTask(5, new EntityAIMoveThroughVillage(this, 1.0D, false));
-		tasks.addTask(0, new EntityAIOpenDoors(this, true));
+		tasks.addTask(0, new EntityAIOpenDoor(this, true));
 		tasks.addTask(8, new EntityAIWander(this, 1.0D));
 		tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8F));
 		tasks.addTask(10, new EntityAILookIdle(this));
@@ -70,7 +71,7 @@ public class EntityThinker extends EntityMob {
 	{
 		dropItem(Items.book, 1);
 	}
-
+	/*
 	public void onDeath(DamageSource damagesource)
 	{
 		if (damagesource.getEntity() instanceof EntityPlayer)
@@ -83,7 +84,7 @@ public class EntityThinker extends EntityMob {
 		}
 
 		super.onDeath(damagesource);
-	}
+	} */
 	/*
 	protected String getLivingSound()
 	{
