@@ -10,7 +10,9 @@ import me.tyler15555.undeadplus.entity.EntityCoolZombie;
 import me.tyler15555.undeadplus.entity.EntityMaggot;
 import me.tyler15555.undeadplus.entity.EntityRotter;
 import me.tyler15555.undeadplus.entity.EntityThinker;
+import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
@@ -37,6 +39,8 @@ public class UndeadPlus {
 	@EventHandler
 	public void startLoading(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
+		
+		AchievementPage.registerAchievementPage(UPAchievements.upPage);
 		
 		logger.log(Level.INFO, "Undead+ is now loading!");
 	}

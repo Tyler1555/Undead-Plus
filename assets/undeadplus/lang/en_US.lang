@@ -1,3 +1,7 @@
 entity.UP-Thinker.name=Thinker
 entity.UP-Maggot.name=Maggot
 entity.UP-CoolZombie.name=Cool Zombie
+achievement.killThinker=Shut your door on the way out!
+achievement.killThinker.desc=Kill a Thinker!
+achievement.coolKill=Ice Cold!
+achievement.coolKill.desc=Kill a Cool Zombie!

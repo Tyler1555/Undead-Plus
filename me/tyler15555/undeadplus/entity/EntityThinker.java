@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.entity;
 
+import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -71,20 +72,15 @@ public class EntityThinker extends EntityMob {
 	{
 		dropItem(Items.book, 1);
 	}
-	/*
-	public void onDeath(DamageSource damagesource)
-	{
-		if (damagesource.getEntity() instanceof EntityPlayer)
-		{
-			if(EntityAIOpenDoors.hasOpenedDoor)
-			{
-				EntityPlayer var2 = (EntityPlayer)damagesource.getEntity();
-				//var2.triggerAchievement(ModUndeadMainRegistry.thinkerDoor); Will reimplement when achievements are ported
-			}
+	@Override
+	public void onDeath(DamageSource damagesource) {
+		if (damagesource.getEntity() instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer)damagesource.getEntity();
+			player.addStat(UPAchievements.thinkerKill, 1);
 		}
 
 		super.onDeath(damagesource);
-	} */
+	} 
 	/*
 	protected String getLivingSound()
 	{

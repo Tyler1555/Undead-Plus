@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.entity;
 
+import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
@@ -14,6 +15,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class EntityCoolZombie extends EntityMob {
@@ -56,5 +58,15 @@ public class EntityCoolZombie extends EntityMob {
 	protected String getDeathSound() {
         return "mob.zombie.death";
     }
+    
+    @Override
+	public void onDeath(DamageSource damagesource) {
+		if (damagesource.getEntity() instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer)damagesource.getEntity();
+			player.addStat(UPAchievements.coolKill, 1);
+		}
+
+		super.onDeath(damagesource);
+	} 
 
 }
