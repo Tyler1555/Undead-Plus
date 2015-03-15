@@ -1,7 +1,13 @@
 entity.UP-Thinker.name=Thinker
 entity.UP-Maggot.name=Maggot
 entity.UP-CoolZombie.name=Cool Zombie
-achievement.killThinker=Shut your door on the way out!
+entity.UP-Rotter.name=Rotter
+entity.UP-Mummy.name=Mummy
+achievement.killThinker=The one who knocks
 achievement.killThinker.desc=Kill a Thinker!
 achievement.coolKill=Ice Cold!
 achievement.coolKill.desc=Kill a Cool Zombie!
+achievement.mummyKill=Reverse The Curse
+achievement.mummyKill.desc=Kill a Mummy!
+achievement.rotterKill=Need a Hand?
+achievement.rotterKill.desc=Kill a Rotter!

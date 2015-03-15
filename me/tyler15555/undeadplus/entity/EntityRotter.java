@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.entity;
 
+import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -28,13 +29,14 @@ public class EntityRotter extends EntityMob {
         targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
         targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 	}
-	/*
+	
 	@Override
 	protected void applyEntityAttributes() {
+		super.applyEntityAttributes();
 		this.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.maxHealth).setBaseValue(24.0D);
 		this.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);
 		this.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.attackDamage).setBaseValue(6.0D);
-	} */
+	} 
 	
 	@Override
 	public ItemStack getHeldItem() {
@@ -52,34 +54,34 @@ public class EntityRotter extends EntityMob {
 				entitymaggot.setLocationAndAngles(posX, posY + 0.5D, posZ, rand.nextFloat() * 360F, 0.0F);
 				worldObj.spawnEntityInWorld(entitymaggot);
 		}
-			/* To be readded when achievements are ported
-			if (par1.getEntity() instanceof EntityPlayer)
-			{
+			
+			if (par1.getEntity() instanceof EntityPlayer) {
 				EntityPlayer var2 = (EntityPlayer)par1.getEntity();
-				var2.triggerAchievement(ModUndeadMainRegistry.rotterKill);
-			} */
+				var2.addStat(UPAchievements.rotterKill, 1);
+			} 
 
 
 		super.onDeath(par1);
 	}
-	/* To be readded when sounds are reimplemented
+	
 	@Override
 	protected String getLivingSound() {
-        return "undeadPlusAudio.mobs.rotter.growl";
+        return "undeadplus:rottermoan";
     }
 
 	@Override
     protected String getHurtSound() {
-        return "undeadPlusAudio.mobs.rotter.hit";
+        return "undeaplus:rotterhit";
     }
 
 	@Override
     protected String getDeathSound(){
-        return "undeadPlusAudio.mobs.rotter.die";
-    } */
+        return "undeadplus:rotterdie";
+    } 
 	
 	@Override
 	public void onLivingUpdate() {
+		super.onLivingUpdate();
 		if (this.worldObj.isDaytime() && !this.worldObj.isRemote && !this.isChild()) {
             float f = this.getBrightness(1.0F);
             BlockPos blockpos = new BlockPos(this.posX, (double)Math.round(this.posY), this.posZ);
@@ -108,4 +110,6 @@ public class EntityRotter extends EntityMob {
             }
         }
 	}
+	
+	
 }

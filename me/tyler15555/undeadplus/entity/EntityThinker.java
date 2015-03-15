@@ -81,25 +81,21 @@ public class EntityThinker extends EntityMob {
 
 		super.onDeath(damagesource);
 	} 
-	/*
-	protected String getLivingSound()
-	{
-		return "undeadPlusAudio.mobs.thinker.growl";
+	
+	@Override
+	protected String getLivingSound() {
+		return "undeadplus:thinkermoan";
 	}
 
-	protected String getHurtSound()
-	{
-		return "undeadPlusAudio.mobs.thinker.hit";
+	@Override
+	protected String getHurtSound() {
+		return "undeadplus:thinkerhit";
 	}
 
-	protected String getDeathSound()
-	{
-		return "undeadPlusAudio.mobs.thinker.die";
-	} */
-
-	public EnumCreatureAttribute getCreatureAttribute() {
-		return EnumCreatureAttribute.UNDEAD;
-	}
+	@Override
+	protected String getDeathSound() {
+		return "undeadplus:thinkerdie";
+	} 
 
 	public void onLivingUpdate() {
 		super.onLivingUpdate();

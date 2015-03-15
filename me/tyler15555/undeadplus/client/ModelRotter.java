@@ -48,7 +48,11 @@ public class ModelRotter extends ModelBiped {
 		leftleg.mirror = true;
 		setRotation(leftleg, 0F, 0F, 0F);
 		
-		super.bipedLeftArm.isHidden = true; //Cheap hack to make it appear as though this is the normal rotter model. This lets me use LayerHeldItem instead of having to use a workaround and eliminates "ghost arm" issues
+		//Cheap hack to make it appear as though this is the normal rotter model. This lets me use LayerHeldItem instead of having to use a workaround. Pretty much I just make all the regular part of ModelBiped invisible
+		super.bipedLeftArm.isHidden = true; 
+		super.bipedHead.isHidden = true;
+		super.bipedLeftLeg.isHidden = true;
+		super.bipedRightLeg.isHidden = true;
 	}
 	
 	public void render(Entity entity, float f1, float f2, float f3, float f4, float f5, float f6)
@@ -70,16 +74,14 @@ public class ModelRotter extends ModelBiped {
 	}
 
 	public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity p_78087_7_) {
-		this.bipedHead.rotateAngleY = p_78087_4_ / (180F / (float)Math.PI);
-        this.bipedHead.rotateAngleX = p_78087_5_ / (180F / (float)Math.PI);
-        this.bipedRightArm.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 2.0F * p_78087_2_ * 0.5F;
-        this.bipedLeftArm.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F) * 2.0F * p_78087_2_ * 0.5F;
-        this.bipedRightArm.rotateAngleZ = 0.0F;
-        this.bipedLeftArm.rotateAngleZ = 0.0F;
-        this.bipedRightLeg.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F) * 1.4F * p_78087_2_;
-        this.bipedLeftLeg.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 1.4F * p_78087_2_;
-        this.bipedRightLeg.rotateAngleY = 0.0F;
-        this.bipedLeftLeg.rotateAngleY = 0.0F; 
+		this.head.rotateAngleY = p_78087_4_ / (180F / (float)Math.PI);
+        this.head.rotateAngleX = p_78087_5_ / (180F / (float)Math.PI);
+        this.rightarm.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 2.0F * p_78087_2_ * 0.5F;
+        this.rightarm.rotateAngleZ = 0.0F;
+        this.rightleg.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F) * 1.4F * p_78087_2_;
+        this.leftleg.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 1.4F * p_78087_2_;
+        this.rightleg.rotateAngleY = 0.0F;
+        this.leftleg.rotateAngleY = 0.0F; 
 	}
 
 }
