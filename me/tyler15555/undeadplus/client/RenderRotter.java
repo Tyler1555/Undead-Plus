@@ -16,7 +16,7 @@ public class RenderRotter extends RenderLiving {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("undeadplus", "/textures/entity/rotter.png");
+		return new ResourceLocation("undeadplus", "textures/entity/rotter.png");
 	}
 
 }

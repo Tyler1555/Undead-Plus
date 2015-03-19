@@ -17,7 +17,7 @@ public class RenderBaseZombie extends RenderLiving {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("undeadplus", "/textures/entity/" + entityTexture + ".png");
+		return new ResourceLocation("undeadplus", "textures/entity/" + entityTexture + ".png");
 	}
 
 }

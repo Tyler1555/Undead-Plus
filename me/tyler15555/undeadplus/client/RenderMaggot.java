@@ -13,7 +13,7 @@ public class RenderMaggot extends RenderSilverfish {
 	
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("undeadplus", "/textures/entity/maggot.png");
+		return new ResourceLocation("undeadplus", "textures/entity/maggot.png");
 	}
 
 }
