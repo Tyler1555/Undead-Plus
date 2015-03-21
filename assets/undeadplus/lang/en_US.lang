@@ -3,6 +3,7 @@ entity.UP-Maggot.name=Maggot
 entity.UP-CoolZombie.name=Cool Zombie
 entity.UP-Rotter.name=Rotter
 entity.UP-Mummy.name=Mummy
+entity.UP-Infected
 achievement.killThinker=The one who knocks
 achievement.killThinker.desc=Kill a Thinker!
 achievement.coolKill=Ice Cold!
