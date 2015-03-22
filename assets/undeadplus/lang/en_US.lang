@@ -5,6 +5,7 @@ entity.UP-Rotter.name=Rotter
 entity.UP-Mummy.name=Mummy
 entity.UP-Infected.name=Infected Zombie
 entity.UP-Ghoul.name=Ghoul
+entity.UP-Crawler.name=Crawler
 achievement.killThinker=The one who knocks
 achievement.killThinker.desc=Kill a Thinker!
 achievement.coolKill=Ice Cold!

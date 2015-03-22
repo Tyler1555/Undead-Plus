@@ -1,17 +1,22 @@
 package me.tyler15555.undeadplus.client;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-
+/**
+ * A simple renderer for entities that use ModelBaseZombie(A fairly large amount of the zombies) and just need a texture. No fancy stuff
+ * @author Tyler15555
+ *
+ */
 public class RenderBaseZombie extends RenderLiving {
 
 	private String entityTexture;
 	
-	public RenderBaseZombie(RenderManager manager, String texture) {
-		super(manager, new ModelBaseZombie(), 0.5F);
+	public RenderBaseZombie(String texture) {
+		super(Minecraft.getMinecraft().getRenderManager(), new ModelBaseZombie(), 0.5F);
 		this.entityTexture = texture;
 	}
 

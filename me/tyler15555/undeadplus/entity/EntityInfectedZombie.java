@@ -1,5 +1,7 @@
 package me.tyler15555.undeadplus.entity;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,6 +22,7 @@ import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -112,5 +115,15 @@ public class EntityInfectedZombie extends EntityMob {
 	@Override
 	protected String getDeathSound() {
 		return "mob.zombie.death";
+	}
+	
+	@Override
+	public void onDeath(DamageSource source) {
+		if(this.rand.nextInt(3) == 1 && FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER) {
+			EntityCrawler crawler = new EntityCrawler(this.worldObj);
+			crawler.copyLocationAndAnglesFrom(this);
+			this.worldObj.spawnEntityInWorld(crawler);
+		}
+		super.onDeath(source);
 	}
 }
