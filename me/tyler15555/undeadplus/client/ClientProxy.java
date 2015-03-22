@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import me.tyler15555.undeadplus.common.CommonProxy;
 import me.tyler15555.undeadplus.entity.EntityCoolZombie;
+import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityInfectedZombie;
 import me.tyler15555.undeadplus.entity.EntityMaggot;
 import me.tyler15555.undeadplus.entity.EntityMummy;
@@ -24,6 +25,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityRotter.class, new RenderRotter(Minecraft.getMinecraft().getRenderManager()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMummy.class, new RenderBaseZombie(Minecraft.getMinecraft().getRenderManager(), "mummy"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityInfectedZombie.class, new RenderBaseZombie(Minecraft.getMinecraft().getRenderManager(), "infected"));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGhoul.class, new RenderBaseZombie(Minecraft.getMinecraft().getRenderManager(), "ghoul"));
 	}
 	
     @Override

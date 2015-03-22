@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import me.tyler15555.undeadplus.biome.BiomeGrave;
 import me.tyler15555.undeadplus.entity.EntityCoolZombie;
+import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityInfectedZombie;
 import me.tyler15555.undeadplus.entity.EntityMaggot;
 import me.tyler15555.undeadplus.entity.EntityMummy;
@@ -31,7 +32,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
-@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.0a")
+@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.1a")
 public class UndeadPlus {
 
 	@Instance("UndeadPlus")
@@ -63,12 +64,17 @@ public class UndeadPlus {
 			BiomeDictionary.registerBiomeType(new BiomeGrave(), Type.SPOOKY, Type.SPARSE, Type.COLD);
 		}
 		
+		if(!ConfigHandler.enableGraveBiome && ConfigHandler.ghoulSpawnRate > 0) {
+			logger.log(Level.WARN, "The grave biome is disabled but the ghoul is enabled! If no other mods add a biome with the type spooky then the ghoul will not spawn!");
+		}
+		
 		EntityRegistry.registerGlobalEntityID(EntityThinker.class, "UP-Thinker", EntityRegistry.findGlobalUniqueEntityId(),Color.PINK.getRGB(), Color.WHITE.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityMaggot.class, "UP-Maggot", EntityRegistry.findGlobalUniqueEntityId(), Color.BLACK.getRGB(), Color.RED.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityCoolZombie.class, "UP-CoolZombie", EntityRegistry.findGlobalUniqueEntityId(), Color.CYAN.getRGB(), Color.BLUE.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityRotter.class, "UP-Rotter", EntityRegistry.findGlobalUniqueEntityId(), Color.RED.getRGB(), Color.ORANGE.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityMummy.class, "UP-Mummy", EntityRegistry.findGlobalUniqueEntityId(), Color.YELLOW.getRGB(), Color.ORANGE.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityInfectedZombie.class, "UP-Infected", EntityRegistry.findGlobalUniqueEntityId(), Color.BLACK.getRGB(), Color.YELLOW.getRGB());
+		EntityRegistry.registerGlobalEntityID(EntityGhoul.class, "UP-Ghoul", EntityRegistry.findGlobalUniqueEntityId(), Color.GRAY.getRGB(), Color.WHITE.getRGB());
 		
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
@@ -77,6 +83,7 @@ public class UndeadPlus {
 		EntityRegistry.addSpawn(EntityRotter.class, ConfigHandler.rotterSpawnRate, 1, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
 		EntityRegistry.addSpawn(EntityCoolZombie.class, ConfigHandler.coolSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
 		EntityRegistry.addSpawn(EntityInfectedZombie.class, ConfigHandler.infectedSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.JUNGLE));
+		EntityRegistry.addSpawn(EntityGhoul.class, ConfigHandler.ghoulSpawnRate, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SPOOKY));
 		
 		
 	}

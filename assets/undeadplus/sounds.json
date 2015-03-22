@@ -61,5 +61,26 @@
 "name": "rottermoan",
 "stream": "true"
 }]
+},
+"ghoulcry": {
+"catagory": "hostile",
+"sounds": [{
+"name": "ghoulcry",
+"stream": "true"
+}]
+},
+"ghoulhit": {
+"catagory": "hostile",
+"sounds": [{
+"name": "ghoulhit",
+"stream": "true"
+}]
+},
+"ghouldie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "ghouldie",
+"stream": "true"
+}]
 }
 }
