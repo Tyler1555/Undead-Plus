@@ -1,0 +1,14 @@
+{
+	"versionList": [
+		{
+			"mcVersion":"Minecraft 1.8",
+			"modVersion":"1.0a1",
+			"changeLog": [
+				"Fixed texture loading issues",
+			],
+			"updateURL":"https://github.com/Tyler1555/Undead-Plus/releases/download/1.0a1/UndeadPlus-1.0a1.jar",
+			"isDirectLink":"true",
+			"newFileName":""
+		}
+	]
+}
