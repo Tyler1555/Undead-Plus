@@ -2,9 +2,19 @@
 	"versionList": [
 		{
 			"mcVersion":"Minecraft 1.8",
+			"modVersion":"1.0a",
+			"changeLog": [
+				"Initial release"
+			],
+			"updateURL":"https://github.com/Tyler1555/Undead-Plus/releases/download/v1.0a/UndeadPlus-1.0a.jar",
+			"isDirectLink":"true",
+			"newFileName":""
+		},
+		{
+			"mcVersion":"Minecraft 1.8",
 			"modVersion":"1.0a1",
 			"changeLog": [
-				"Fixed texture loading issues",
+				"Texture loading hotfix"
 			],
 			"updateURL":"https://github.com/Tyler1555/Undead-Plus/releases/download/1.0a1/UndeadPlus-1.0a1.jar",
 			"isDirectLink":"true",
@@ -12,11 +22,12 @@
 		},
 		{
 			"mcVersion":"Minecraft 1.8",
-			"modVersion":"1.0a",
-			"changeLog": [
-				"Initial release",
+			"modVersion":"1.1a",
+			"changelog": [
+				"Update checking support",
+				"Added Ghoul, Crawler, and Infected Zombie"
 			],
-			"updateURL":"https://github.com/Tyler1555/Undead-Plus/releases/download/v1.0a/UndeadPlus-1.0a.jar,
+			"updateURL":"https://github.com/Tyler1555/Undead-Plus/releases/download/1.1a/UndeadPlus-1.1a.jar",
 			"isDirectLink":"true",
 			"newFileName":""
 		}
