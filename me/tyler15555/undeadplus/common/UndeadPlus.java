@@ -30,6 +30,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
@@ -50,6 +51,8 @@ public class UndeadPlus {
 		ConfigHandler.setupConfig(new Configuration(event.getSuggestedConfigurationFile()));
 		
 		AchievementPage.registerAchievementPage(UPAchievements.upPage);
+		
+		FMLInterModComms.sendRuntimeMessage(this, "UndeadPlus", "addVersionCheck", "https://raw.githubusercontent.com/Tyler1555/Undead-Plus/master/version.json");
 		
 		logger.log(Level.INFO, "Undead+ is now loading!");
 	}
