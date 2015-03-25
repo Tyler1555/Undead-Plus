@@ -24,6 +24,7 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -34,7 +35,7 @@ import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
-@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.1a")
+@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.2a")
 public class UndeadPlus {
 
 	@Instance("UndeadPlus")
@@ -48,13 +49,13 @@ public class UndeadPlus {
 	public void startLoading(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
 		
+		logger.log(Level.INFO, "Undead+ is now loading!");
+		
 		ConfigHandler.setupConfig(new Configuration(event.getSuggestedConfigurationFile()));
 		
 		AchievementPage.registerAchievementPage(UPAchievements.upPage);
 		
-		FMLInterModComms.sendRuntimeMessage(this, "UndeadPlus", "addVersionCheck", "https://raw.githubusercontent.com/Tyler1555/Undead-Plus/master/version.json");
-		
-		logger.log(Level.INFO, "Undead+ is now loading!");
+		FMLInterModComms.sendRuntimeMessage("UndeadPlus", "VersionChecker", "addVersionCheck", "https://raw.githubusercontent.com/Tyler1555/Undead-Plus/master/version.json");
 	}
 	
 	@EventHandler
@@ -90,7 +91,7 @@ public class UndeadPlus {
 		EntityRegistry.addSpawn(EntityInfectedZombie.class, ConfigHandler.infectedSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.JUNGLE));
 		EntityRegistry.addSpawn(EntityGhoul.class, ConfigHandler.ghoulSpawnRate, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SPOOKY));
 		
-		
+		MinecraftForge.EVENT_BUS.register(new UndeadEventHandler());
 	}
 	
 	@EventHandler
