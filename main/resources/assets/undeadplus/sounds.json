@@ -1,0 +1,86 @@
+{
+"mummymoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "mummymoan",
+"stream": "true"
+}]
+},
+"mummyhit": {
+"catagory": "hostile",
+"sounds": [{
+"name": "mummyhit",
+"stream": "true"
+}]
+},
+"mummydie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "mummydie",
+"stream": "true"
+}]
+},
+"thinkerdie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "thinkerdie",
+"stream": "true"
+}]
+},
+"thinkerhit": {
+"catagory": "hostile",
+"sounds": [{
+"name": "thinkerhit",
+"stream": "true"
+}]
+},
+"thinkermoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "thinkermoan",
+"stream": "true"
+}]
+},
+"rotterdie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "rotterdie",
+"stream": "true"
+}]
+},
+"rotterhit": {
+"catagory": "hostile",
+"sounds": [{
+"name": "rotterhit",
+"stream": "true"
+}]
+},
+"rottermoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "rottermoan",
+"stream": "true"
+}]
+},
+"ghoulcry": {
+"catagory": "hostile",
+"sounds": [{
+"name": "ghoulcry",
+"stream": "true"
+}]
+},
+"ghoulhit": {
+"catagory": "hostile",
+"sounds": [{
+"name": "ghoulhit",
+"stream": "true"
+}]
+},
+"ghouldie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "ghouldie",
+"stream": "true"
+}]
+}
+}
