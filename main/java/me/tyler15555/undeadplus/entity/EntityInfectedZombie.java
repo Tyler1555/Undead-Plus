@@ -57,7 +57,7 @@ public class EntityInfectedZombie extends EntityMob {
 	public boolean attackEntityAsMob(Entity entity) {
 		if(super.attackEntityAsMob(entity))
 		{
-			if(entity instanceof EntityLiving)
+			if(entity instanceof EntityPlayer)
 			{
 				byte byte0 = 0;
 
@@ -78,7 +78,7 @@ public class EntityInfectedZombie extends EntityMob {
 
 				if(byte0 > 0)
 				{
-					((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.poison.id, byte0 * 20, 0));
+					((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.poison.id, byte0 * 20, 0));
 				}
 			}
 			return true;

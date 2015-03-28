@@ -71,7 +71,7 @@ public class EntityRotter extends EntityMob {
 
 	@Override
     protected String getHurtSound() {
-        return "undeaplus:rotterhit";
+        return "undeadplus:rotterhit";
     }
 
 	@Override

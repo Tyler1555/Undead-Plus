@@ -11,6 +11,7 @@ import me.tyler15555.undeadplus.entity.EntityCrawler;
 import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityInfectedZombie;
 import me.tyler15555.undeadplus.entity.EntityMaggot;
+import me.tyler15555.undeadplus.entity.EntityMudman;
 import me.tyler15555.undeadplus.entity.EntityMummy;
 import me.tyler15555.undeadplus.entity.EntityRotter;
 import me.tyler15555.undeadplus.entity.EntityThinker;
@@ -84,6 +85,7 @@ public class UndeadPlus {
 		EntityRegistry.registerGlobalEntityID(EntityGhoul.class, "UP-Ghoul", EntityRegistry.findGlobalUniqueEntityId(), Color.GRAY.getRGB(), Color.WHITE.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityCrawler.class, "UP-Crawler", EntityRegistry.findGlobalUniqueEntityId(), Color.GREEN.getRGB(), Color.BLACK.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityWidower.class, "UP-Widower", EntityRegistry.findGlobalUniqueEntityId(), Color.BLACK.getRGB(), Color.GREEN.getRGB());
+		EntityRegistry.registerGlobalEntityID(EntityMudman.class, "UP-Mudman", EntityRegistry.findGlobalUniqueEntityId(), Color.BLUE.getRGB(), Color.ORANGE.getRGB() + Color.BLUE.getRGB());
 		
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
@@ -94,6 +96,7 @@ public class UndeadPlus {
 		EntityRegistry.addSpawn(EntityInfectedZombie.class, ConfigHandler.infectedSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.JUNGLE));
 		EntityRegistry.addSpawn(EntityGhoul.class, ConfigHandler.ghoulSpawnRate, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SPOOKY));
 		EntityRegistry.addSpawn(EntityWidower.class, ConfigHandler.widowerSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
+		EntityRegistry.addSpawn(EntityMudman.class, ConfigHandler.mudmanSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SWAMP));
 		
 		MinecraftForge.EVENT_BUS.register(new UndeadEventHandler());
 		

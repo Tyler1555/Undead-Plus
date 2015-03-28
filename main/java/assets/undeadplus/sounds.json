@@ -82,5 +82,26 @@
 "name": "ghouldie",
 "stream": "true"
 }]
+},
+"mudmanmoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "mudmanmoan",
+"stream": "true"
+}]
+},
+"mudmanhit": {
+"catagory": "hostile",
+"sounds": [{
+"name": "mudmanhit",
+"stream": "true"
+}]
+},
+"mudmandie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "mudmandie",
+"stream": "true"
+}]
 }
 }

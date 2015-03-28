@@ -8,6 +8,7 @@ import me.tyler15555.undeadplus.entity.EntityCrawler;
 import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityInfectedZombie;
 import me.tyler15555.undeadplus.entity.EntityMaggot;
+import me.tyler15555.undeadplus.entity.EntityMudman;
 import me.tyler15555.undeadplus.entity.EntityMummy;
 import me.tyler15555.undeadplus.entity.EntityRotter;
 import me.tyler15555.undeadplus.entity.EntityThinker;
@@ -30,6 +31,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityGhoul.class, new RenderBaseZombie("ghoul"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrawler.class, new RenderCustomModel(new ModelCrawler(), "crawler"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityWidower.class, new RenderWidower(Minecraft.getMinecraft().getRenderManager()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMudman.class, new RenderBaseZombie("mudman"));
 	}
 	
     @Override

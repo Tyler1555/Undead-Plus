@@ -19,6 +19,7 @@ public class ConfigHandler {
 	public static int infectedSpawnRate;
 	public static int ghoulSpawnRate;
 	public static int widowerSpawnRate;
+	public static int mudmanSpawnRate;
 	public static int graveBiomeID;
 	public static boolean enableGraveBiome;
 	public static boolean addCustomAid;
@@ -35,6 +36,7 @@ public class ConfigHandler {
 			infectedSpawnRate = config.getInt("InfectedSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a infected zombie spawning");
 			ghoulSpawnRate = config.getInt("GhoulSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a ghoul spawning. Note: If no spooky biomes are found(This mod adds one) this mob will not spawn");
 			widowerSpawnRate = config.getInt("WidowerSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "Chance of a widower spawning");
+			mudmanSpawnRate = config.getInt("MudmanSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "Chance of a mudman spawning");
 			graveBiomeID = config.getInt("GraveBiomeID", "IDs", 30, Integer.MIN_VALUE, Integer.MAX_VALUE, "The Grave Biome's ID");
 			enableGraveBiome = config.getBoolean("EnableGraveBiome", "General", true, "Whether or not to enable the grave biome. This could screw up some mod interactions");
 			addCustomAid = config.getBoolean("AddCustomSummonAid", "Tweaks", true, "Whether or not to add custom aid for zombies that summon it(This is a vanilla mechanic. The possible summons are a thinker or ghoul");
