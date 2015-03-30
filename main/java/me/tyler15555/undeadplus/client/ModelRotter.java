@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.client;
 
+import me.tyler15555.undeadplus.entity.EntityRotter;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -9,7 +10,7 @@ public class ModelRotter extends ModelBiped {
 
 	ModelRenderer head;
 	ModelRenderer body;
-	ModelRenderer rightarm;
+	//ModelRenderer rightarm;
 	ModelRenderer rightleg;
 	ModelRenderer leftleg;
 
@@ -29,12 +30,12 @@ public class ModelRotter extends ModelBiped {
 		body.setTextureSize(64, 32);
 		body.mirror = true;
 		setRotation(body, 0F, 0F, 0F);
-		rightarm = new ModelRenderer(this, 40, 16);
-		rightarm.addBox(-3F, -2F, -2F, 4, 12, 4);
-		rightarm.setRotationPoint(-5F, 2F, 0F);
-		rightarm.setTextureSize(64, 32);
-		rightarm.mirror = true;
-		setRotation(rightarm, 0F, 0F, 0F);
+		//rightarm = new ModelRenderer(this, 40, 16);
+		//rightarm.addBox(-3F, -2F, -2F, 4, 12, 4);
+		//rightarm.setRotationPoint(-5F, 2F, 0F);
+		//rightarm.setTextureSize(64, 32);
+		//rightarm.mirror = true;
+		//setRotation(rightarm, 0F, 0F, 0F);
 		rightleg = new ModelRenderer(this, 0, 16);
 		rightleg.addBox(-2F, 0F, -2F, 4, 12, 4);
 		rightleg.setRotationPoint(-2F, 12F, 0F);
@@ -55,19 +56,17 @@ public class ModelRotter extends ModelBiped {
 		super.bipedRightLeg.isHidden = true;
 	}
 	
-	public void render(Entity entity, float f1, float f2, float f3, float f4, float f5, float f6)
-	{
+	public void render(Entity entity, float f1, float f2, float f3, float f4, float f5, float f6) {
 		super.render(entity, f1, f2, f3, f4, f5, f6);
 		setRotationAngles(f1, f2, f3, f4, f5, f6, entity);
 		head.render(f6);
 		body.render(f6);
-		rightarm.render(f6);
+		//rightarm.render(f6);
 		rightleg.render(f6);
 		leftleg.render(f6);
 	}
 
-	private void setRotation(ModelRenderer model, float x, float y, float z)
-	{
+	private void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;
@@ -76,8 +75,8 @@ public class ModelRotter extends ModelBiped {
 	public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity p_78087_7_) {
 		this.head.rotateAngleY = p_78087_4_ / (180F / (float)Math.PI);
         this.head.rotateAngleX = p_78087_5_ / (180F / (float)Math.PI);
-        this.rightarm.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 2.0F * p_78087_2_ * 0.5F;
-        this.rightarm.rotateAngleZ = 0.0F;
+        this.bipedRightArm.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 2.0F * p_78087_2_ * 0.5F;
+        this.bipedRightArm.rotateAngleZ = 0.0F;
         this.rightleg.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F) * 1.4F * p_78087_2_;
         this.leftleg.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 1.4F * p_78087_2_;
         this.rightleg.rotateAngleY = 0.0F;

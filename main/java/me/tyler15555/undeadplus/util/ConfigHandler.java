@@ -20,10 +20,12 @@ public class ConfigHandler {
 	public static int ghoulSpawnRate;
 	public static int widowerSpawnRate;
 	public static int mudmanSpawnRate;
+	public static int frostbiteSpawnRate;
 	public static int graveBiomeID;
 	public static boolean enableGraveBiome;
 	public static boolean addCustomAid;
 	public static boolean addToDungeons;
+	public static boolean enableTweaks;
 	
 	public static void setupConfig(Configuration config) {
 		try {
@@ -37,10 +39,12 @@ public class ConfigHandler {
 			ghoulSpawnRate = config.getInt("GhoulSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a ghoul spawning. Note: If no spooky biomes are found(This mod adds one) this mob will not spawn");
 			widowerSpawnRate = config.getInt("WidowerSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "Chance of a widower spawning");
 			mudmanSpawnRate = config.getInt("MudmanSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "Chance of a mudman spawning");
+			frostbiteSpawnRate = config.getInt("FrostbiteSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a Frostbite spawning");
 			graveBiomeID = config.getInt("GraveBiomeID", "IDs", 30, Integer.MIN_VALUE, Integer.MAX_VALUE, "The Grave Biome's ID");
 			enableGraveBiome = config.getBoolean("EnableGraveBiome", "General", true, "Whether or not to enable the grave biome. This could screw up some mod interactions");
 			addCustomAid = config.getBoolean("AddCustomSummonAid", "Tweaks", true, "Whether or not to add custom aid for zombies that summon it(This is a vanilla mechanic. The possible summons are a thinker or ghoul");
 			addToDungeons = config.getBoolean("AddZombiesToDungeons", "Tweaks", true, "Whether or not to add a chance for dungeons to contain a spawner for this mod's mobs");
+			enableTweaks = config.getBoolean("EnableZombieTweaks", "Tweaks", true, "Whether or not to enable tweaks to zombies that were not in the original Undead+ mod");
 		} catch(Exception e) {
 			UndeadPlus.logger.log(Level.ERROR, "An error has occured loading the Undead+ config file! Things may not work properly!");
 			e.printStackTrace();

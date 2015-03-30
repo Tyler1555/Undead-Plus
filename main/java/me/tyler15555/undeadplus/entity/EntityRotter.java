@@ -1,6 +1,10 @@
 package me.tyler15555.undeadplus.entity;
 
+import java.util.HashMap;
+
+import me.tyler15555.undeadplus.util.ConfigHandler;
 import me.tyler15555.undeadplus.util.UPAchievements;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -47,20 +51,20 @@ public class EntityRotter extends EntityMob {
 	public void onDeath(DamageSource par1) {
 		int i = rand.nextInt(4);
 
-		if (!worldObj.isRemote && i == 3)
-		{
-
-				EntityMaggot entitymaggot = new EntityMaggot(worldObj);
-				entitymaggot.setLocationAndAngles(posX, posY + 0.5D, posZ, rand.nextFloat() * 360F, 0.0F);
-				worldObj.spawnEntityInWorld(entitymaggot);
+		if (!worldObj.isRemote && i == 3) {
+			EntityMaggot entitymaggot = new EntityMaggot(worldObj);
+			entitymaggot.setLocationAndAngles(posX, posY + 0.5D, posZ, rand.nextFloat() * 360F, 0.0F);
+			worldObj.spawnEntityInWorld(entitymaggot);
+		} else if(!worldObj.isRemote && i == 1 && ConfigHandler.enableTweaks) {
+			EntityLimb arm = new EntityLimb(this.worldObj);
+			arm.copyLocationAndAnglesFrom(this);
+			worldObj.spawnEntityInWorld(arm);
 		}
 			
-			if (par1.getEntity() instanceof EntityPlayer) {
+		if (par1.getEntity() instanceof EntityPlayer) {
 				EntityPlayer var2 = (EntityPlayer)par1.getEntity();
 				var2.addStat(UPAchievements.rotterKill, 1);
-			} 
-
-
+		} 
 		super.onDeath(par1);
 	}
 	
@@ -110,6 +114,4 @@ public class EntityRotter extends EntityMob {
             }
         }
 	}
-	
-	
 }

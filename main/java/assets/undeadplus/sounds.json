@@ -103,5 +103,26 @@
 "name": "mudmandie",
 "stream": "true"
 }]
+},
+"frostdie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "frostbitedie",
+"stream": "true"
+}]
+},
+"frosthurt": {
+"catagory": "hostile",
+"sounds": [{
+"name": "frostbitehit",
+"stream": "true"
+}]
+},
+"frostmoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "frostbitemoan",
+"stream": "true"
+}]
 }
 }

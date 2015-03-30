@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.client;
 
+import me.tyler15555.undeadplus.entity.EntityRotter;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerHeldItem;
@@ -18,5 +19,4 @@ public class RenderRotter extends RenderLiving {
 	protected ResourceLocation getEntityTexture(Entity entity) {
 		return new ResourceLocation("undeadplus", "textures/entity/rotter.png");
 	}
-
 }

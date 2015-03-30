@@ -5,8 +5,10 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import me.tyler15555.undeadplus.common.CommonProxy;
 import me.tyler15555.undeadplus.entity.EntityCoolZombie;
 import me.tyler15555.undeadplus.entity.EntityCrawler;
+import me.tyler15555.undeadplus.entity.EntityFrostbite;
 import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityInfectedZombie;
+import me.tyler15555.undeadplus.entity.EntityLimb;
 import me.tyler15555.undeadplus.entity.EntityMaggot;
 import me.tyler15555.undeadplus.entity.EntityMudman;
 import me.tyler15555.undeadplus.entity.EntityMummy;
@@ -32,6 +34,8 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrawler.class, new RenderCustomModel(new ModelCrawler(), "crawler"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityWidower.class, new RenderWidower(Minecraft.getMinecraft().getRenderManager()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudman.class, new RenderBaseZombie("mudman"));
+		RenderingRegistry.registerEntityRenderingHandler(EntityLimb.class, new RenderCustomModel(new ModelArm(), "arm"));
+		RenderingRegistry.registerEntityRenderingHandler(EntityFrostbite.class, new RenderBaseZombie("frostbite"));
 	}
 	
     @Override

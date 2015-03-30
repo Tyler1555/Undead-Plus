@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.entity;
 
+import me.tyler15555.undeadplus.util.ConfigHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -35,7 +36,7 @@ public class EntityMaggot extends EntitySilverfish {
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
 		super.attackEntityAsMob(entity);
-		if(this.rand.nextInt(3) == 1) {
+		if(this.rand.nextInt(3) == 1 && ConfigHandler.enableTweaks) {
 			this.heal(1); //My own touch, since maggots eat flesh in real life
 		}
 		return true;
