@@ -2,6 +2,18 @@
 	"versionList": [
 		{
 			"mcVersion":"Minecraft 1.8",
+			"modVersion":"1.2a",
+			"changelog": [
+				"Added Mudman, Widower, and Frostbite",
+				"Added dismemberment tweak to rotter",
+				"Added config option to disable my tweaks"
+			],
+			"updateURL":"https://github.com/Tyler1555/Undead-Plus/releases/download/1.2a/UndeadPlus-1.2a.jar",
+			"isDirectLink":"true",
+			"newFileName": ""
+		}
+		,{
+			"mcVersion":"Minecraft 1.8",
 			"modVersion":"1.1a",
 			"changelog": [
 				"Update checking support",
