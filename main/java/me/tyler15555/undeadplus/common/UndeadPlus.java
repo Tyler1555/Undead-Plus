@@ -18,6 +18,7 @@ import me.tyler15555.undeadplus.entity.EntityMummy;
 import me.tyler15555.undeadplus.entity.EntityRotter;
 import me.tyler15555.undeadplus.entity.EntityThinker;
 import me.tyler15555.undeadplus.entity.EntityWidower;
+import me.tyler15555.undeadplus.entity.EntityZombrine;
 import me.tyler15555.undeadplus.util.ConfigHandler;
 import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.entity.EnumCreatureType;
@@ -71,7 +72,7 @@ public class UndeadPlus {
 		if(ConfigHandler.enableGraveBiome) {
 			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(new BiomeGrave(), ConfigHandler.graveBiomeID));
 			BiomeManager.addSpawnBiome(new BiomeGrave());
-			BiomeDictionary.registerBiomeType(new BiomeGrave(), Type.SPOOKY, Type.SPARSE, Type.COLD);
+			BiomeDictionary.registerBiomeType(new BiomeGrave(), Type.SPOOKY, Type.SPARSE, Type.COLD, Type.DEAD);
 		}
 		
 		if(!ConfigHandler.enableGraveBiome && ConfigHandler.ghoulSpawnRate > 0) {
@@ -90,6 +91,7 @@ public class UndeadPlus {
 		EntityRegistry.registerGlobalEntityID(EntityMudman.class, "UP-Mudman", EntityRegistry.findGlobalUniqueEntityId(), Color.BLUE.getRGB(), Color.ORANGE.getRGB() + Color.BLUE.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityLimb.class, "UP-Limb", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerGlobalEntityID(EntityFrostbite.class, "UP-Frostbite", EntityRegistry.findGlobalUniqueEntityId(), Color.CYAN.getRGB(), Color.BLUE.getRGB());
+		EntityRegistry.registerGlobalEntityID(EntityZombrine.class, "UP-Zombrine", EntityRegistry.findGlobalUniqueEntityId(), Color.BLACK.getRGB(), Color.GRAY.getRGB());
 		
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
@@ -102,6 +104,7 @@ public class UndeadPlus {
 		EntityRegistry.addSpawn(EntityWidower.class, ConfigHandler.widowerSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
 		EntityRegistry.addSpawn(EntityMudman.class, ConfigHandler.mudmanSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SWAMP));
 		EntityRegistry.addSpawn(EntityFrostbite.class, ConfigHandler.frostbiteSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.COLD));
+		EntityRegistry.addSpawn(EntityZombrine.class, ConfigHandler.zombrineSpawnRate, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.DEAD));
 		
 		MinecraftForge.EVENT_BUS.register(new UndeadEventHandler());
 		

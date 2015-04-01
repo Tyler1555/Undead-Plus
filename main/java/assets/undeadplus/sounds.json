@@ -124,5 +124,19 @@
 "name": "frostbitemoan",
 "stream": "true"
 }]
+},
+"zombrinevanish": {
+"catagory": "hostile",
+"sounds": [{
+"name": "zombrinevanish",
+"stream": "true"
+}]
+},
+"zombrinemoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "zombrinegrowl",
+"stream": "true"
+}]
 }
 }
