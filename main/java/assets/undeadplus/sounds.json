@@ -138,5 +138,26 @@
 "name": "zombrinegrowl",
 "stream": "true"
 }]
+},
+"pirategrowl": {
+"catagory": "hostile",
+"sounds": [{
+"name": "buccaneerliving",
+"stream": "true"
+}]
+},
+"piratehurt": {
+"catagory": "hostile",
+"sounds": [{
+"name": "buccaneerhit",
+"stream": "true"
+}]
+},
+"piratedeath": {
+"catagory": "hostile",
+"sounds": [{
+"name": "buccaneerdie",
+"stream": "true"
+}]
 }
 }
