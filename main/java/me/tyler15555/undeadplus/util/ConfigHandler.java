@@ -24,6 +24,7 @@ public class ConfigHandler {
 	public static int zombrineSpawnRate;
 	public static int pirateSpawnRate;
 	public static int graveBiomeID;
+	public static int rareDropChance;
 	public static boolean enableGraveBiome;
 	public static boolean addCustomAid;
 	public static boolean addToDungeons;
@@ -45,6 +46,7 @@ public class ConfigHandler {
 			zombrineSpawnRate = config.getInt("ZombrineSpawnRate", "Spawning", 5, 0, Integer.MAX_VALUE, "Chance of Zombrine spawning");
 			pirateSpawnRate = config.getInt("BuccaneerSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a Buccaneer spawning");
 			graveBiomeID = config.getInt("GraveBiomeID", "IDs", 30, Integer.MIN_VALUE, Integer.MAX_VALUE, "The Grave Biome's ID");
+			rareDropChance = config.getInt("RareDropChance", "General", 50, -1, 100, "The chance of a zombie dropping rare loot, higher number means lower chance. Set to -1 to disable");
 			enableGraveBiome = config.getBoolean("EnableGraveBiome", "General", true, "Whether or not to enable the grave biome. This could screw up some mod interactions");
 			addCustomAid = config.getBoolean("AddCustomSummonAid", "Tweaks", true, "Whether or not to add custom aid for zombies that summon it(This is a vanilla mechanic. The possible summons are a thinker or ghoul");
 			addToDungeons = config.getBoolean("AddZombiesToDungeons", "Tweaks", true, "Whether or not to add a chance for dungeons to contain a spawner for this mod's mobs");

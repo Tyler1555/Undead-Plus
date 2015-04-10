@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.entity;
 
+import me.tyler15555.undeadplus.util.IClassicEntity;
 import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -29,7 +30,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityMummy extends EntityMob {
+public class EntityMummy extends EntityMob implements IClassicEntity {
 
 	public EntityMummy(World worldIn) {
 		super(worldIn);
@@ -153,6 +154,11 @@ public class EntityMummy extends EntityMob {
 		}
 
 		super.onDeath(damagesource);
+	}
+
+	@Override
+	public void dropRareDrop(int i) {
+		dropItem(Item.getItemFromBlock(Blocks.wool), 1);
 	} 
 
 }

@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.entity;
 
+import me.tyler15555.undeadplus.util.IClassicEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
@@ -19,7 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityGhoul extends EntityMob {
+public class EntityGhoul extends EntityMob implements IClassicEntity {
 
 	public EntityGhoul(World worldIn) {
 		super(worldIn);
@@ -75,6 +76,11 @@ public class EntityGhoul extends EntityMob {
 	@Override
 	protected String getDeathSound() {
 		return "undeadplus:ghouldie";
+	}
+
+	@Override
+	public void dropRareDrop(int i) {
+		dropItem(Items.ghast_tear, 1);
 	}
 
 }

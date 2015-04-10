@@ -1,8 +1,10 @@
 package me.tyler15555.undeadplus.entity;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import me.tyler15555.undeadplus.util.ConfigHandler;
+import me.tyler15555.undeadplus.util.IClassicEntity;
 import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,7 +23,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityRotter extends EntityMob {
+public class EntityRotter extends EntityMob implements IClassicEntity {
 
 	public EntityRotter(World worldIn) {
 		super(worldIn);
@@ -113,5 +115,13 @@ public class EntityRotter extends EntityMob {
                 }
             }
         }
+	}
+
+	@Override
+	public void dropRareDrop(int i) {
+		Random random = new Random();
+		if(random.nextInt(4) <= 3) {
+			dropItem(Items.reeds, 1);
+		}
 	}
 }

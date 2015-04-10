@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.entity;
 
+import me.tyler15555.undeadplus.util.IClassicEntity;
 import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -25,7 +26,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityFrostbite extends EntityMob {
+public class EntityFrostbite extends EntityMob implements IClassicEntity {
 
 	public EntityFrostbite(World worldIn) {
 		super(worldIn);
@@ -116,6 +117,11 @@ public class EntityFrostbite extends EntityMob {
 			EntityPlayer player = (EntityPlayer)source.getEntity();
 			player.addStat(UPAchievements.frostKill, 1);
 		}
+	}
+
+	@Override
+	public void dropRareDrop(int i) {
+		dropItem(Item.getItemFromBlock(Blocks.ice), 1);
 	}
 
 }

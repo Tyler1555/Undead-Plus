@@ -5,7 +5,9 @@ import java.util.Random;
 import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityThinker;
 import me.tyler15555.undeadplus.util.ConfigHandler;
+import me.tyler15555.undeadplus.util.IClassicEntity;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.ZombieEvent.SummonAidEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -35,6 +37,18 @@ public class UndeadEventHandler {
 				break;
 			default:
 				return;
+			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void onLivingDeath(LivingDeathEvent event) {
+		if(event.entity instanceof IClassicEntity) {
+			if(ConfigHandler.rareDropChance == -1) {
+				return;
+			} else if(random.nextInt(100) >= ConfigHandler.rareDropChance) {
+				IClassicEntity entity = (IClassicEntity)event.entity;
+				entity.dropRareDrop(ConfigHandler.rareDropChance);
 			}
 		}
 	}

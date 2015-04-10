@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.entity;
 
+import me.tyler15555.undeadplus.util.IClassicEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,7 +25,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityCrawler extends EntityMob {
+public class EntityCrawler extends EntityMob implements IClassicEntity {
 
 	public EntityCrawler(World worldIn) {
 		super(worldIn);
@@ -120,6 +121,11 @@ public class EntityCrawler extends EntityMob {
 	@Override
 	public Item getDropItem() {
 		return Items.rotten_flesh;
+	}
+
+	@Override
+	public void dropRareDrop(int i) {
+		dropItem(Items.rotten_flesh, 1);
 	}
 
 }

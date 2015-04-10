@@ -1,5 +1,7 @@
 package me.tyler15555.undeadplus.entity;
 
+import me.tyler15555.undeadplus.util.IClassicEntity;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
@@ -18,7 +20,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class EntityBuccaneer extends EntityMob {
+public class EntityBuccaneer extends EntityMob implements IClassicEntity {
 
 	public EntityBuccaneer(World worldIn) {
 		super(worldIn);
@@ -76,6 +78,13 @@ public class EntityBuccaneer extends EntityMob {
 	@Override
 	public String getDeathSound() {
 		return "undeadplus:piratedeath";
+	}
+
+	@Override
+	public void dropRareDrop(int i) {
+		ItemStack var2 = new ItemStack(Items.golden_sword);
+		var2.addEnchantment(Enchantment.smite, 2);
+		entityDropItem(var2, 0F);
 	}
 
 }
