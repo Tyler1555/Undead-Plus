@@ -12,6 +12,7 @@ import me.tyler15555.undeadplus.entity.EntityCrawler;
 import me.tyler15555.undeadplus.entity.EntityFrostbite;
 import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityInfectedZombie;
+import me.tyler15555.undeadplus.entity.EntityKnight;
 import me.tyler15555.undeadplus.entity.EntityLimb;
 import me.tyler15555.undeadplus.entity.EntityMaggot;
 import me.tyler15555.undeadplus.entity.EntityMudman;
@@ -42,7 +43,7 @@ import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
-@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.2a")
+@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.3a")
 public class UndeadPlus {
 
 	@Instance("UndeadPlus")
@@ -94,6 +95,7 @@ public class UndeadPlus {
 		EntityRegistry.registerGlobalEntityID(EntityFrostbite.class, "UP-Frostbite", EntityRegistry.findGlobalUniqueEntityId(), Color.CYAN.getRGB(), Color.BLUE.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityZombrine.class, "UP-Zombrine", EntityRegistry.findGlobalUniqueEntityId(), Color.BLACK.getRGB(), Color.GRAY.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityBuccaneer.class, "UP-Buccaneer", EntityRegistry.findGlobalUniqueEntityId(), Color.BLUE.getRGB(), Color.ORANGE.getRGB() + Color.BLUE.getRGB());
+		EntityRegistry.registerGlobalEntityID(EntityKnight.class, "UP-Knight", EntityRegistry.findGlobalUniqueEntityId(), 0xc5c5c5, 0xebebeb);
 		
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
@@ -108,6 +110,7 @@ public class UndeadPlus {
 		EntityRegistry.addSpawn(EntityFrostbite.class, ConfigHandler.frostbiteSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.COLD));
 		EntityRegistry.addSpawn(EntityZombrine.class, ConfigHandler.zombrineSpawnRate, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.DEAD));
 		EntityRegistry.addSpawn(EntityBuccaneer.class, ConfigHandler.pirateSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.BEACH));
+		EntityRegistry.addSpawn(EntityKnight.class, ConfigHandler.knightSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.HILLS));
 		
 		MinecraftForge.EVENT_BUS.register(new UndeadEventHandler());
 		

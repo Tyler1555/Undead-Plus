@@ -3,10 +3,14 @@ package me.tyler15555.undeadplus.common;
 import java.util.Random;
 
 import me.tyler15555.undeadplus.entity.EntityGhoul;
+import me.tyler15555.undeadplus.entity.EntityKnight;
 import me.tyler15555.undeadplus.entity.EntityThinker;
 import me.tyler15555.undeadplus.util.ConfigHandler;
 import me.tyler15555.undeadplus.util.IClassicEntity;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.ZombieEvent.SummonAidEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
@@ -50,6 +54,17 @@ public class UndeadEventHandler {
 				IClassicEntity entity = (IClassicEntity)event.entity;
 				entity.dropRareDrop(ConfigHandler.rareDropChance);
 			}
+		}
+	}
+	//Because using entityInit() will prevent the zombie from spawning at all for some reason if I try to add armor, this has to be done instead
+	@SubscribeEvent
+	public void onEntityJoinWorld(EntityJoinWorldEvent event) {
+		if(event.entity instanceof EntityKnight) {
+	    	event.entity.setCurrentItemOrArmor(0, new ItemStack(Items.iron_sword));
+	    	event.entity.setCurrentItemOrArmor(1, new ItemStack(Items.iron_helmet));
+	    	event.entity.setCurrentItemOrArmor(2, new ItemStack(Items.iron_chestplate));
+	    	event.entity.setCurrentItemOrArmor(3, new ItemStack(Items.iron_leggings));
+	    	event.entity.setCurrentItemOrArmor(4, new ItemStack(Items.iron_boots));
 		}
 	}
 

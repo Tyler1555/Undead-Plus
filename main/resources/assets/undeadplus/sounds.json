@@ -124,5 +124,61 @@
 "name": "frostbitemoan",
 "stream": "true"
 }]
+},
+"zombrinevanish": {
+"catagory": "hostile",
+"sounds": [{
+"name": "zombrinevanish",
+"stream": "true"
+}]
+},
+"zombrinemoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "zombrinegrowl",
+"stream": "true"
+}]
+},
+"pirategrowl": {
+"catagory": "hostile",
+"sounds": [{
+"name": "buccaneerliving",
+"stream": "true"
+}]
+},
+"piratehurt": {
+"catagory": "hostile",
+"sounds": [{
+"name": "buccaneerhit",
+"stream": "true"
+}]
+},
+"piratedeath": {
+"catagory": "hostile",
+"sounds": [{
+"name": "buccaneerdie",
+"stream": "true"
+}]
+},
+"knightmoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "knightmoan",
+"stream": "true"
+}]
+},
+"knighthurt": {
+"catagory": "hostile",
+"sounds": [{
+"name": "knighthit",
+"stream": "true"
+}]
+},
+"knightdie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "knightdie",
+"stream": "true"
+}]
 }
 }

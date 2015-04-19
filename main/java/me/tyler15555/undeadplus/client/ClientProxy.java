@@ -9,6 +9,7 @@ import me.tyler15555.undeadplus.entity.EntityCrawler;
 import me.tyler15555.undeadplus.entity.EntityFrostbite;
 import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityInfectedZombie;
+import me.tyler15555.undeadplus.entity.EntityKnight;
 import me.tyler15555.undeadplus.entity.EntityLimb;
 import me.tyler15555.undeadplus.entity.EntityMaggot;
 import me.tyler15555.undeadplus.entity.EntityMudman;
@@ -40,6 +41,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityFrostbite.class, new RenderBaseZombie("frostbite"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZombrine.class, new RenderBaseZombie("zombrine"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBuccaneer.class, new RenderBuccaneer());
+		RenderingRegistry.registerEntityRenderingHandler(EntityKnight.class, new RenderKnight("knightnew"));
 	}
 	
     @Override

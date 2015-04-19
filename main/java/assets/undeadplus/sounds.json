@@ -159,5 +159,26 @@
 "name": "buccaneerdie",
 "stream": "true"
 }]
+},
+"knightmoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "knightmoan",
+"stream": "true"
+}]
+},
+"knighthurt": {
+"catagory": "hostile",
+"sounds": [{
+"name": "knighthit",
+"stream": "true"
+}]
+},
+"knightdie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "knightdie",
+"stream": "true"
+}]
 }
 }
