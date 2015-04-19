@@ -1,5 +1,17 @@
 {
 	"versionList": [
+                {
+                	"mcVersion":"Minecraft 1.8",
+                	"modVersion":"1.3a",
+                	"changelog": [
+                		"Added: Zombrine, Buccaneer, and Knight",
+                		"Added: Classic Entity System",
+                		"Added random drops to all mobs"
+                	],
+                	"updateURL":"https://github.com/Tyler1555/Undead-Plus/releases/download/1.3a/UndeadPlus-1.3a.jar",
+                	"isDirectLink":"true",
+                	"newFileName":""
+                },
 		{
 			"mcVersion":"Minecraft 1.8",
 			"modVersion":"1.2a",
