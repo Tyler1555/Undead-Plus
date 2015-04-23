@@ -180,5 +180,26 @@
 "name": "knightdie",
 "stream": "true"
 }]
+},
+"brutemoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "brutegrowl",
+"stream": "true"
+}]
+},
+"brutehurt": {
+"catagory": "hostile",
+"sounds": [{
+"name": "brutehit",
+"stream": "true"
+}]
+},
+"brutedie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "brutedie",
+"stream": "true"
+}]
 }
 }

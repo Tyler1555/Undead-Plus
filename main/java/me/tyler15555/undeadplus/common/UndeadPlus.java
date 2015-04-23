@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
 import me.tyler15555.undeadplus.biome.BiomeGrave;
+import me.tyler15555.undeadplus.entity.EntityBrute;
 import me.tyler15555.undeadplus.entity.EntityBuccaneer;
 import me.tyler15555.undeadplus.entity.EntityCoolZombie;
 import me.tyler15555.undeadplus.entity.EntityCrawler;
@@ -96,6 +97,7 @@ public class UndeadPlus {
 		EntityRegistry.registerGlobalEntityID(EntityZombrine.class, "UP-Zombrine", EntityRegistry.findGlobalUniqueEntityId(), Color.BLACK.getRGB(), Color.GRAY.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityBuccaneer.class, "UP-Buccaneer", EntityRegistry.findGlobalUniqueEntityId(), Color.BLUE.getRGB(), Color.ORANGE.getRGB() + Color.BLUE.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityKnight.class, "UP-Knight", EntityRegistry.findGlobalUniqueEntityId(), 0xc5c5c5, 0xebebeb);
+		EntityRegistry.registerGlobalEntityID(EntityBrute.class, "UP-Brute", EntityRegistry.findGlobalUniqueEntityId(), 0x00afaf, 0x676f65);
 		
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
@@ -111,6 +113,7 @@ public class UndeadPlus {
 		EntityRegistry.addSpawn(EntityZombrine.class, ConfigHandler.zombrineSpawnRate, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.DEAD));
 		EntityRegistry.addSpawn(EntityBuccaneer.class, ConfigHandler.pirateSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.BEACH));
 		EntityRegistry.addSpawn(EntityKnight.class, ConfigHandler.knightSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.HILLS));
+		EntityRegistry.addSpawn(EntityBrute.class, ConfigHandler.bruteSpawnRate, 2, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SWAMP));
 		
 		MinecraftForge.EVENT_BUS.register(new UndeadEventHandler());
 		

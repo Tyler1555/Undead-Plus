@@ -3,6 +3,7 @@ package me.tyler15555.undeadplus.client;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import me.tyler15555.undeadplus.common.CommonProxy;
+import me.tyler15555.undeadplus.entity.EntityBrute;
 import me.tyler15555.undeadplus.entity.EntityBuccaneer;
 import me.tyler15555.undeadplus.entity.EntityCoolZombie;
 import me.tyler15555.undeadplus.entity.EntityCrawler;
@@ -42,6 +43,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityZombrine.class, new RenderBaseZombie("zombrine"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBuccaneer.class, new RenderBuccaneer());
 		RenderingRegistry.registerEntityRenderingHandler(EntityKnight.class, new RenderKnight("knightnew"));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBrute.class, new RenderCustomModel(new ModelBrute(), "brute"));
 	}
 	
     @Override

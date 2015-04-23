@@ -15,7 +15,8 @@ public class UPAchievements {
 	public static Achievement rotterKill = new Achievement("rotterKill", "rotterKill", 3, 2, Items.rotten_flesh, null);
 	public static Achievement mummyKill = new Achievement("mummyKill", "mummyKill", 5, 4, Blocks.sand, null);
 	public static Achievement frostKill = new Achievement("frostKill", "frostKill", 8, 4, Items.snowball, null);
+	public static Achievement bruteKill = new Achievement("bruteKill", "bruteKill", -3, 7, Items.bone, null);
 	
-	public static AchievementPage upPage = new AchievementPage("Undead+", thinkerKill, coolKill, mummyKill, rotterKill, frostKill);
+	public static AchievementPage upPage = new AchievementPage("Undead+", thinkerKill, coolKill, mummyKill, rotterKill, frostKill, bruteKill);
 
 }
