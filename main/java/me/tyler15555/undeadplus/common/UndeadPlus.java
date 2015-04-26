@@ -21,6 +21,7 @@ import me.tyler15555.undeadplus.entity.EntityMummy;
 import me.tyler15555.undeadplus.entity.EntityRotter;
 import me.tyler15555.undeadplus.entity.EntityThinker;
 import me.tyler15555.undeadplus.entity.EntityWidower;
+import me.tyler15555.undeadplus.entity.EntityZkuba;
 import me.tyler15555.undeadplus.entity.EntityZombrine;
 import me.tyler15555.undeadplus.util.ConfigHandler;
 import me.tyler15555.undeadplus.util.UPAchievements;
@@ -98,6 +99,7 @@ public class UndeadPlus {
 		EntityRegistry.registerGlobalEntityID(EntityBuccaneer.class, "UP-Buccaneer", EntityRegistry.findGlobalUniqueEntityId(), Color.BLUE.getRGB(), Color.ORANGE.getRGB() + Color.BLUE.getRGB());
 		EntityRegistry.registerGlobalEntityID(EntityKnight.class, "UP-Knight", EntityRegistry.findGlobalUniqueEntityId(), 0xc5c5c5, 0xebebeb);
 		EntityRegistry.registerGlobalEntityID(EntityBrute.class, "UP-Brute", EntityRegistry.findGlobalUniqueEntityId(), 0x00afaf, 0x676f65);
+		EntityRegistry.registerGlobalEntityID(EntityZkuba.class, "UP-Zkuba", EntityRegistry.findGlobalUniqueEntityId(), 0xe4e0d3, 0xd0b600);
 		
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
@@ -114,6 +116,7 @@ public class UndeadPlus {
 		EntityRegistry.addSpawn(EntityBuccaneer.class, ConfigHandler.pirateSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.BEACH));
 		EntityRegistry.addSpawn(EntityKnight.class, ConfigHandler.knightSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.HILLS));
 		EntityRegistry.addSpawn(EntityBrute.class, ConfigHandler.bruteSpawnRate, 2, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SWAMP));
+		EntityRegistry.addSpawn(EntityZkuba.class, ConfigHandler.zkubaSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.WATER));
 		
 		MinecraftForge.EVENT_BUS.register(new UndeadEventHandler());
 		

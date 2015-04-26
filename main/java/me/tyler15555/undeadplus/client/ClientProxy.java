@@ -18,6 +18,7 @@ import me.tyler15555.undeadplus.entity.EntityMummy;
 import me.tyler15555.undeadplus.entity.EntityRotter;
 import me.tyler15555.undeadplus.entity.EntityThinker;
 import me.tyler15555.undeadplus.entity.EntityWidower;
+import me.tyler15555.undeadplus.entity.EntityZkuba;
 import me.tyler15555.undeadplus.entity.EntityZombrine;
 
 public class ClientProxy extends CommonProxy {
@@ -44,6 +45,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBuccaneer.class, new RenderBuccaneer());
 		RenderingRegistry.registerEntityRenderingHandler(EntityKnight.class, new RenderKnight("knightnew"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrute.class, new RenderCustomModel(new ModelBrute(), "brute"));
+		RenderingRegistry.registerEntityRenderingHandler(EntityZkuba.class, new RenderCustomModel(new ModelZkuba(), "zkuba"));
 	}
 	
     @Override

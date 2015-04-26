@@ -13,8 +13,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.ZombieEvent.SummonAidEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
 
 public class UndeadEventHandler {
 
@@ -27,7 +29,7 @@ public class UndeadEventHandler {
 	//event.customSummonAid isn't used because non of these mobs extend EntityZombie, so I just layer them on top. If anything, it just makes this more difficult :)
 	@SubscribeEvent
 	public void onSummonAid(SummonAidEvent event) {
-		if(ConfigHandler.addCustomAid && event.world.getDifficulty() == EnumDifficulty.HARD && this.random.nextFloat() < event.summonChance) {
+		if(ConfigHandler.addCustomAid && event.world.getDifficulty() == EnumDifficulty.HARD && this.random.nextFloat() < event.summonChance) { //Since this event is called before the actual summoning code is ran, I need to recreate the conditions for summoning
 			switch(random.nextInt(2)) {
 			case 0:
 				EntityGhoul ghoul = new EntityGhoul(event.world);
@@ -50,7 +52,7 @@ public class UndeadEventHandler {
 		if(event.entity instanceof IClassicEntity) {
 			if(ConfigHandler.rareDropChance == -1) {
 				return;
-			} else if(random.nextInt(100) >= ConfigHandler.rareDropChance) {
+			} else if(random.nextInt(100) >= ConfigHandler.rareDropChance && FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER) {
 				IClassicEntity entity = (IClassicEntity)event.entity;
 				entity.dropRareDrop(ConfigHandler.rareDropChance);
 			}

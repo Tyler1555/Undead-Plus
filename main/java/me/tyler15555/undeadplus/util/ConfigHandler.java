@@ -25,6 +25,7 @@ public class ConfigHandler {
 	public static int pirateSpawnRate;
 	public static int knightSpawnRate;
 	public static int bruteSpawnRate;
+	public static int zkubaSpawnRate;
 	public static int graveBiomeID;
 	public static int rareDropChance;
 	public static boolean enableGraveBiome;
@@ -49,6 +50,7 @@ public class ConfigHandler {
 			pirateSpawnRate = config.getInt("BuccaneerSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a Buccaneer spawning");
 			knightSpawnRate = config.getInt("KnightSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a Knight Spawning");
 			bruteSpawnRate = config.getInt("BruteSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a Brute spawning");
+			zkubaSpawnRate = config.getInt("ZkubaSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a zkuba spawning");
 			graveBiomeID = config.getInt("GraveBiomeID", "IDs", 30, Integer.MIN_VALUE, Integer.MAX_VALUE, "The Grave Biome's ID");
 			rareDropChance = config.getInt("RareDropChance", "General", 50, -1, 100, "The chance of a zombie dropping rare loot, higher number means lower chance. Set to -1 to disable");
 			enableGraveBiome = config.getBoolean("EnableGraveBiome", "General", true, "Whether or not to enable the grave biome. This could screw up some mod interactions");
