@@ -2,6 +2,7 @@ package me.tyler15555.undeadplus.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
@@ -11,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
  * @author Tyler15555
  *
  */
-public class RenderBaseZombie extends RenderLiving {
+public class RenderBaseZombie extends RenderBiped {
 
 	private String entityTexture;
 	
