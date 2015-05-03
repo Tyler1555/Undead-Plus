@@ -17,10 +17,10 @@ public class BiomeGrave extends BiomeGenBase {
 		this.setBiomeName("Grave");
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
-		topBlock = Blocks.grass.getDefaultState();
-		fillerBlock = Blocks.dirt.getDefaultState();
-		minHeight = 0.1F;
-		maxHeight = 0.3F;
+		topBlock = Blocks.grass;
+		fillerBlock = Blocks.dirt;
+		this.heightVariation = 0.3F;
+		this.rootHeight = 0.1F;
 		theBiomeDecorator.treesPerChunk = 0;
 		theBiomeDecorator.deadBushPerChunk = 10;
 		theBiomeDecorator.flowersPerChunk = 0;

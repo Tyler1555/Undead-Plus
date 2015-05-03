@@ -1,6 +1,5 @@
 package me.tyler15555.undeadplus.entity;
 
-import me.tyler15555.undeadplus.util.ConfigHandler;
 import me.tyler15555.undeadplus.util.IClassicEntity;
 import me.tyler15555.undeadplus.util.UPConstants;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,10 +19,6 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityKnight extends EntityMob implements IClassicEntity {
@@ -42,8 +37,8 @@ public class EntityKnight extends EntityMob implements IClassicEntity {
         tasks.addTask(7, new EntityAILookIdle(this));
         tasks.addTask(8, new EntityAIFleeSun(this, 1.0D));
         targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
+        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16, true));
+        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 16, false));
 	}
 	
 	@Override
@@ -62,32 +57,7 @@ public class EntityKnight extends EntityMob implements IClassicEntity {
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		if (this.worldObj.isDaytime() && !this.worldObj.isRemote && !this.isChild()) {
-            float f = this.getBrightness(1.0F);
-            BlockPos blockpos = new BlockPos(this.posX, (double)Math.round(this.posY), this.posZ);
-
-            if (f > 0.5F && this.rand.nextFloat() * 30.0F < (f - 0.4F) * 2.0F && this.worldObj.canSeeSky(blockpos)) {
-                boolean flag = true;
-                ItemStack itemstack = this.getEquipmentInSlot(4);
-
-                if (itemstack != null)  {
-                    if (itemstack.isItemStackDamageable()) {
-                        itemstack.setItemDamage(itemstack.getItemDamage() + this.rand.nextInt(2));
-
-                        if (itemstack.getItemDamage() >= itemstack.getMaxDamage()) {
-                            this.renderBrokenItemStack(itemstack);
-                            this.setCurrentItemOrArmor(4, (ItemStack)null);
-                        }
-                    }
-
-                    flag = false;
-                }
-
-                if (flag) {
-                    this.setFire(8);
-                }
-           }
-        }
+		UPConstants.burnInSunlight(this.worldObj, this);
 	}
 	
 	@Override

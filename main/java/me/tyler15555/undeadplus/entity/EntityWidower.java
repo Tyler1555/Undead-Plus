@@ -32,7 +32,7 @@ public class EntityWidower extends EntitySpider {
             {
                 byte byte0 = 0;
                 
-                switch(this.worldObj.getDifficulty()) {
+                switch(this.worldObj.difficultySetting) {
                 case EASY:
                 	byte0 = 4;
                 	break;

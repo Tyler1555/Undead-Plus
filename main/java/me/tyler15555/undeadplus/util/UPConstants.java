@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class UPConstants {
@@ -18,31 +18,30 @@ public class UPConstants {
 	//So I don't have to write the same code a billion times
 	public static void burnInSunlight(World world, EntityMob entity) {
 		if (entity.worldObj.isDaytime() && !entity.worldObj.isRemote && !entity.isChild()) {
-	        float f = entity.getBrightness(1.0F);
-	        BlockPos blockpos = new BlockPos(entity.posX, (double)Math.round(entity.posY), entity.posZ);
+            float f = entity.getBrightness(1.0F);
 
-	        if (f > 0.5F && random.nextFloat() * 30.0F < (f - 0.4F) * 2.0F && entity.worldObj.canSeeSky(blockpos)) {
-	            boolean flag = true;
-	            ItemStack itemstack = entity.getEquipmentInSlot(4);
+            if (f > 0.5F && random.nextFloat() * 30.0F < (f - 0.4F) * 2.0F && entity.worldObj.canBlockSeeTheSky(MathHelper.floor_double(entity.posX), MathHelper.floor_double(entity.posY), MathHelper.floor_double(entity.posZ))) {
+                boolean flag = true;
+                ItemStack itemstack = entity.getEquipmentInSlot(4);
 
-	            if (itemstack != null)  {
-	                if (itemstack.isItemStackDamageable()) {
-	                    itemstack.setItemDamage(itemstack.getItemDamage() + random.nextInt(2));
+                if (itemstack != null) {
+                    if (itemstack.isItemStackDamageable()) {
+                        itemstack.setItemDamage(itemstack.getItemDamageForDisplay() + random.nextInt(2));
 
-	                    if (itemstack.getItemDamage() >= itemstack.getMaxDamage()) {
-	                        entity.renderBrokenItemStack(itemstack);
-	                        entity.setCurrentItemOrArmor(4, (ItemStack)null);
-	                    }
-	                }
+                        if (itemstack.getItemDamageForDisplay() >= itemstack.getMaxDamage()) {
+                            entity.renderBrokenItemStack(itemstack);
+                            entity.setCurrentItemOrArmor(4, (ItemStack)null);
+                        }
+                    }
 
-	                flag = false;
-	            }
+                    flag = false;
+                }
 
-	            if (flag) {
-	                entity.setFire(8);
-	            }
-	         }
-	     }
+                if (flag) {
+                    entity.setFire(8);
+                }
+            }
+		}
 	}
 	
 }

@@ -16,7 +16,7 @@ public class RenderBaseZombie extends RenderLiving {
 	private String entityTexture;
 	
 	public RenderBaseZombie(String texture) {
-		super(Minecraft.getMinecraft().getRenderManager(), new ModelBaseZombie(), 0.5F);
+		super(new ModelBaseZombie(), 0.5F);
 		this.entityTexture = texture;
 	}
 

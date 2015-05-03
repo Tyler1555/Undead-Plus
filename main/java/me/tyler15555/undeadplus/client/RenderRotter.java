@@ -3,17 +3,16 @@ package me.tyler15555.undeadplus.client;
 import me.tyler15555.undeadplus.entity.EntityRotter;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.layers.LayerHeldItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 
 public class RenderRotter extends RenderLiving {
-	
-	public RenderRotter(RenderManager p_i46153_1_) {
-		super(p_i46153_1_, new ModelRotter(), 0.5F);
-		this.addLayer(new LayerHeldItem(this));
+
+	public RenderRotter() {
+		super(new ModelRotter(), 0.5F);
 	}
+
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {

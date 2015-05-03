@@ -39,8 +39,8 @@ public class EntityZkuba extends EntityMob implements IClassicEntity {
         tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8F));
         tasks.addTask(7, new EntityAILookIdle(this));
         targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
+        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16, true));
+        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 16, false));
 	}
 	
 	@Override
@@ -69,7 +69,7 @@ public class EntityZkuba extends EntityMob implements IClassicEntity {
         if(super.attackEntityAsMob(entity) && ConfigHandler.enableTweaks) {
             if(entity instanceof EntityPlayer) {
                     byte byte0 = 0;
-                	switch(this.worldObj.getDifficulty()) {
+                	switch(this.worldObj.difficultySetting) {
                 	case EASY:
                 		byte0 = 3;
                 		break;

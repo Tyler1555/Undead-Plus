@@ -1,8 +1,8 @@
 package me.tyler15555.undeadplus.entity;
 
 import me.tyler15555.undeadplus.util.UPAchievements;
+import me.tyler15555.undeadplus.util.UPConstants;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
@@ -17,15 +17,10 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.pathfinding.PathNavigateGround;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityThinker extends EntityMob {
@@ -33,7 +28,6 @@ public class EntityThinker extends EntityMob {
 	public EntityThinker(World world) {
 		super(world);
 		experienceValue = 5;
-		((PathNavigateGround)this.getNavigator()).func_179688_b(true); //Sets door breaking
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIBreakDoor(this));
 		tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
@@ -46,8 +40,8 @@ public class EntityThinker extends EntityMob {
 		tasks.addTask(10, new EntityAILookIdle(this));
         tasks.addTask(4, new EntityAIFleeSun(this, 1.0D));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16, true));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 16, false));
 	}
 
 	protected void applyEntityAttributes() {
@@ -99,15 +93,7 @@ public class EntityThinker extends EntityMob {
 
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		
-		if (worldObj.isDaytime() && !worldObj.isRemote)
-		{
-			float f = getBrightness(1.0F);
-			if (f > 0.5F && worldObj.canBlockSeeSky(new BlockPos(MathHelper.floor_double(posX), MathHelper.floor_double(posY), MathHelper.floor_double(posZ))) && rand.nextFloat() * 30F < (f - 0.4F) * 2.0F)
-			{
-				setFire(8);
-			}
-		}
+		UPConstants.burnInSunlight(this.worldObj, this);
 	}
 
 	protected Entity findPlayerToAttack() {

@@ -8,9 +8,9 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderWidower extends RenderSpider {
 	
-	public RenderWidower(RenderManager p_i46139_1_) {
-		super(p_i46139_1_);
-		this.addLayer(new LayerWidowerEyes(this));
+	public RenderWidower() {
+		super();
+		//this.addLayer(new LayerWidowerEyes(this));
 	}
 	
 	@Override

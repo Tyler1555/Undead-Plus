@@ -2,9 +2,6 @@ package me.tyler15555.undeadplus.common;
 
 import java.awt.Color;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.Logger;
-
 import me.tyler15555.undeadplus.biome.BiomeGrave;
 import me.tyler15555.undeadplus.entity.EntityBrute;
 import me.tyler15555.undeadplus.entity.EntityBuccaneer;
@@ -26,7 +23,6 @@ import me.tyler15555.undeadplus.entity.EntityZombrine;
 import me.tyler15555.undeadplus.util.ConfigHandler;
 import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -36,14 +32,19 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLInterModComms;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
+
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.Logger;
+
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
+
 
 @Mod(name = "Undead+", modid = "UndeadPlus", version = "1.3a")
 public class UndeadPlus {
@@ -101,22 +102,22 @@ public class UndeadPlus {
 		EntityRegistry.registerGlobalEntityID(EntityBrute.class, "UP-Brute", EntityRegistry.findGlobalUniqueEntityId(), 0x00afaf, 0x676f65);
 		EntityRegistry.registerGlobalEntityID(EntityZkuba.class, "UP-Zkuba", EntityRegistry.findGlobalUniqueEntityId(), 0xe4e0d3, 0xd0b600);
 		
-		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
-		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
-		EntityRegistry.addSpawn(EntityThinker.class, ConfigHandler.thinkerSpawnRate, 1, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
-		EntityRegistry.addSpawn(EntityMummy.class, ConfigHandler.mummySpawnRate, 5, 6, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.DRY));
-		EntityRegistry.addSpawn(EntityRotter.class, ConfigHandler.rotterSpawnRate, 1, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
-		EntityRegistry.addSpawn(EntityCoolZombie.class, ConfigHandler.coolSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
-		EntityRegistry.addSpawn(EntityInfectedZombie.class, ConfigHandler.infectedSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.JUNGLE));
-		EntityRegistry.addSpawn(EntityGhoul.class, ConfigHandler.ghoulSpawnRate, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SPOOKY));
-		EntityRegistry.addSpawn(EntityWidower.class, ConfigHandler.widowerSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
-		EntityRegistry.addSpawn(EntityMudman.class, ConfigHandler.mudmanSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SWAMP));
-		EntityRegistry.addSpawn(EntityFrostbite.class, ConfigHandler.frostbiteSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.COLD));
-		EntityRegistry.addSpawn(EntityZombrine.class, ConfigHandler.zombrineSpawnRate, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.DEAD));
-		EntityRegistry.addSpawn(EntityBuccaneer.class, ConfigHandler.pirateSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.BEACH));
-		EntityRegistry.addSpawn(EntityKnight.class, ConfigHandler.knightSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.HILLS));
-		EntityRegistry.addSpawn(EntityBrute.class, ConfigHandler.bruteSpawnRate, 2, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SWAMP));
-		EntityRegistry.addSpawn(EntityZkuba.class, ConfigHandler.zkubaSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.WATER));
+		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.FOREST));
+		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.PLAINS));
+		EntityRegistry.addSpawn(EntityThinker.class, ConfigHandler.thinkerSpawnRate, 1, 3, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.FOREST));
+		EntityRegistry.addSpawn(EntityMummy.class, ConfigHandler.mummySpawnRate, 5, 6, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.DRY));
+		EntityRegistry.addSpawn(EntityRotter.class, ConfigHandler.rotterSpawnRate, 1, 3, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.PLAINS));
+		EntityRegistry.addSpawn(EntityCoolZombie.class, ConfigHandler.coolSpawnRate, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.PLAINS));
+		EntityRegistry.addSpawn(EntityInfectedZombie.class, ConfigHandler.infectedSpawnRate, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.JUNGLE));
+		EntityRegistry.addSpawn(EntityGhoul.class, ConfigHandler.ghoulSpawnRate, 1, 1, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.SPOOKY));
+		EntityRegistry.addSpawn(EntityWidower.class, ConfigHandler.widowerSpawnRate, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.FOREST));
+		EntityRegistry.addSpawn(EntityMudman.class, ConfigHandler.mudmanSpawnRate, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.SWAMP));
+		EntityRegistry.addSpawn(EntityFrostbite.class, ConfigHandler.frostbiteSpawnRate, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.COLD));
+		EntityRegistry.addSpawn(EntityZombrine.class, ConfigHandler.zombrineSpawnRate, 1, 1, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.DEAD));
+		EntityRegistry.addSpawn(EntityBuccaneer.class, ConfigHandler.pirateSpawnRate, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.BEACH));
+		EntityRegistry.addSpawn(EntityKnight.class, ConfigHandler.knightSpawnRate, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.HILLS));
+		EntityRegistry.addSpawn(EntityBrute.class, ConfigHandler.bruteSpawnRate, 2, 3, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.SWAMP));
+		EntityRegistry.addSpawn(EntityZkuba.class, ConfigHandler.zkubaSpawnRate, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.WATER));
 		
 		MinecraftForge.EVENT_BUS.register(new UndeadEventHandler());
 		

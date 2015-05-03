@@ -7,8 +7,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderMaggot extends RenderSilverfish {
 
-	public RenderMaggot(RenderManager p_i46144_1_) {
-		super(p_i46144_1_);
+	public RenderMaggot() {
+		super();
 	}
 	
 	@Override

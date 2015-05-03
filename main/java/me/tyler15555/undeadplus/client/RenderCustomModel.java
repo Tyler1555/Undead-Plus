@@ -16,7 +16,7 @@ public class RenderCustomModel extends RenderLiving {
 	private final String entityTexture;
 	
 	public RenderCustomModel(ModelBase model, String textureName) {
-		super(Minecraft.getMinecraft().getRenderManager(), model, 0.5F);
+		super(model, 0.5F);
 		this.entityTexture = textureName;
 	}
 

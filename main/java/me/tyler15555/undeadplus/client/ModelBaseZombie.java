@@ -111,8 +111,8 @@ public class ModelBaseZombie extends ModelBiped {
         this.bipedLeftLeg.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 1.4F * p_78087_2_;
         this.bipedRightLeg.rotateAngleY = 0.0F;
         this.bipedLeftLeg.rotateAngleY = 0.0F;
-        float f6 = MathHelper.sin(this.swingProgress * (float)Math.PI);
-        float f7 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
+        float f6 = MathHelper.sin(0 * (float)Math.PI);
+        float f7 = MathHelper.sin((1.0F - (1.0F - 0) * (1.0F - 0)) * (float)Math.PI);
         this.bipedRightArm.rotateAngleZ = 0.0F;
         this.bipedLeftArm.rotateAngleZ = 0.0F;
         this.bipedRightArm.rotateAngleY = -(0.1F - f6 * 0.6F);
@@ -125,7 +125,6 @@ public class ModelBaseZombie extends ModelBiped {
         this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(p_78087_3_ * 0.09F) * 0.05F + 0.05F;
         this.bipedRightArm.rotateAngleX += MathHelper.sin(p_78087_3_ * 0.067F) * 0.05F;
         this.bipedLeftArm.rotateAngleX -= MathHelper.sin(p_78087_3_ * 0.067F) * 0.05F;
-        copyModelAngles(this.bipedHead, this.bipedHeadwear);
     }
 
    

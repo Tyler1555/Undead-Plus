@@ -34,8 +34,8 @@ public class EntityBuccaneer extends EntityMob implements IClassicEntity {
 		tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8F));
 		tasks.addTask(7, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16, true));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 16, false));
 	}
 	
 	@Override

@@ -93,8 +93,8 @@ public class ModelBuccaneer extends ModelBiped {
 	        this.leftLeg.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 1.4F * p_78087_2_;
 	        this.rightLeg.rotateAngleY = 0.0F;
 	        this.leftLeg.rotateAngleY = 0.0F;
-	        float f6 = MathHelper.sin(this.swingProgress * (float)Math.PI);
-	        float f7 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
+	        float f6 = MathHelper.sin(0 * (float)Math.PI);
+	        float f7 = MathHelper.sin((1.0F - (1.0F - 0) * (1.0F - 0)) * (float)Math.PI);
 	        super.bipedRightArm.rotateAngleZ = 0.0F;
 	        this.leftArm.rotateAngleZ = 0.0F;
 	        super.bipedRightArm.rotateAngleY = -(0.1F - f6 * 0.6F);

@@ -1,8 +1,8 @@
 package me.tyler15555.undeadplus.entity;
 
 import me.tyler15555.undeadplus.util.IClassicEntity;
+import me.tyler15555.undeadplus.util.UPConstants;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
@@ -21,8 +21,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityCrawler extends EntityMob implements IClassicEntity {
@@ -41,8 +39,8 @@ public class EntityCrawler extends EntityMob implements IClassicEntity {
         tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8F));
         tasks.addTask(7, new EntityAILookIdle(this));
         targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
+        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16, true));
+        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, fleeingTick, false));
 	}
 	
 	@Override
@@ -61,7 +59,7 @@ public class EntityCrawler extends EntityMob implements IClassicEntity {
             if(entity instanceof EntityPlayer) {
                 byte byte0 = 0;
                 	//This is a switch as opposed to other entities because I figured it would be easier to write this way, and what do you know, it was. Other classes will not be changed
-                	switch(this.worldObj.getDifficulty()) {
+                	switch(this.worldObj.difficultySetting) {
                 	case EASY:
                 		byte0 = 3;
                 		break;
@@ -91,15 +89,7 @@ public class EntityCrawler extends EntityMob implements IClassicEntity {
 	@Override
 	public void onLivingUpdate() {
         super.onLivingUpdate();
-		
-		if (worldObj.isDaytime() && !worldObj.isRemote)
-		{
-			float f = getBrightness(1.0F);
-			if (f > 0.5F && worldObj.canBlockSeeSky(new BlockPos(MathHelper.floor_double(posX), MathHelper.floor_double(posY), MathHelper.floor_double(posZ))) && rand.nextFloat() * 30F < (f - 0.4F) * 2.0F)
-			{
-				setFire(8);
-			}
-		}
+		UPConstants.burnInSunlight(this.worldObj, this);
     }
 	
 	@Override

@@ -1,7 +1,7 @@
 package me.tyler15555.undeadplus.entity;
 
+import me.tyler15555.undeadplus.util.UPConstants;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
@@ -16,16 +16,13 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.relauncher.Side;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
 
 public class EntityInfectedZombie extends EntityMob {
 
@@ -41,8 +38,8 @@ public class EntityInfectedZombie extends EntityMob {
 		tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8F));
 		tasks.addTask(7, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16, true));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 16, false));
 	}
 	
 	@Override
@@ -61,17 +58,17 @@ public class EntityInfectedZombie extends EntityMob {
 			{
 				byte byte0 = 0;
 
-				if(worldObj.getDifficulty() == EnumDifficulty.EASY)
+				if(worldObj.difficultySetting == EnumDifficulty.EASY)
 				{
 					byte0 = 4;
 				}
 
-				if(worldObj.getDifficulty() == EnumDifficulty.NORMAL)
+				if(worldObj.difficultySetting == EnumDifficulty.NORMAL)
 				{
 					byte0 = 7;
 				} 
 				else
-					if(worldObj.getDifficulty() == EnumDifficulty.HARD)
+					if(worldObj.difficultySetting == EnumDifficulty.HARD)
 					{
 						byte0 = 15;
 					}
@@ -91,15 +88,7 @@ public class EntityInfectedZombie extends EntityMob {
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		
-		if (worldObj.isDaytime() && !worldObj.isRemote)
-		{
-			float f = getBrightness(1.0F);
-			if (f > 0.5F && worldObj.canBlockSeeSky(new BlockPos(MathHelper.floor_double(posX), MathHelper.floor_double(posY), MathHelper.floor_double(posZ))) && rand.nextFloat() * 30F < (f - 0.4F) * 2.0F)
-			{
-				setFire(8);
-			}
-		}
+		UPConstants.burnInSunlight(this.worldObj, this);
 	}
 	
 	@Override
