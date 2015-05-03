@@ -4,7 +4,7 @@
                 	"mcVersion":"Minecraft 1.7",
                 	"modVersion":"1.3ac",
                 	"changelog": [
-                		"Back ported to 1.7"
+                		"Back ported to 1.7.10"
                 	],
                 	"updateURL":"https://github.com/Tyler1555/Undead-Plus/releases/download/1.3ac/UndeadPlus-1.3ac.jar",
                 	"isDirectLink":"true",
