@@ -1,7 +1,17 @@
 {
 	"versionList": [
                 {
-                	"mcVersion":"Minecraft 1.7",
+                	"mcVersion":"Minecraft 1.7.10",
+                	"modVersion":"1.3.1ac",
+                	"changelog": [
+                		"Changed item dropping method to fix crashing"
+                	],
+                	"updateURL":"https://github.com/Tyler1555/Undead-Plus/releases/download/1.3.1ac/UndeadPlus-1.3.1ac.jar",
+                	"isDirectLink":"true",
+                	"newFileName":""
+                },
+                {
+                	"mcVersion":"Minecraft 1.7.10",
                 	"modVersion":"1.3ac",
                 	"changelog": [
                 		"Back ported to 1.7.10"
