@@ -22,6 +22,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -130,7 +131,7 @@ public class EntityMummy extends EntityMob implements IClassicEntity {
 
 	@Override
 	public void dropRareDrop(int i) {
-		dropItem(Item.getItemFromBlock(Blocks.wool), 1);
+		this.entityDropItem(new ItemStack(Blocks.wool), 0);
 	} 
 
 }

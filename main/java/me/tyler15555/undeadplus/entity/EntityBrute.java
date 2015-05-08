@@ -66,7 +66,7 @@ public class EntityBrute extends EntityMob implements IClassicEntity {
 
 	@Override
 	public void dropRareDrop(int i) {
-		dropItem(Items.experience_bottle, 1);
+		this.entityDropItem(new ItemStack(Items.experience_bottle), 0);
 	}
 	
 	@Override

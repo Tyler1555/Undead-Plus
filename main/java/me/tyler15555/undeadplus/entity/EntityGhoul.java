@@ -17,6 +17,7 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -80,7 +81,7 @@ public class EntityGhoul extends EntityMob implements IClassicEntity {
 
 	@Override
 	public void dropRareDrop(int i) {
-		dropItem(Items.ghast_tear, 1);
+		this.entityDropItem(new ItemStack(Items.ghast_tear), 0);
 	}
 
 }

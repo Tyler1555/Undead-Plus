@@ -84,7 +84,7 @@ public class EntityBuccaneer extends EntityMob implements IClassicEntity {
 	public void dropRareDrop(int i) {
 		ItemStack var2 = new ItemStack(Items.golden_sword);
 		var2.addEnchantment(Enchantment.smite, 2);
-		entityDropItem(var2, 0F);
+		this.entityDropItem(var2, 0);
 	}
 
 }

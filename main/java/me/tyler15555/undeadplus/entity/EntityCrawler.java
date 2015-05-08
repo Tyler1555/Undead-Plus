@@ -19,6 +19,7 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -114,7 +115,7 @@ public class EntityCrawler extends EntityMob implements IClassicEntity {
 
 	@Override
 	public void dropRareDrop(int i) {
-		dropItem(Items.rotten_flesh, 1);
+		this.entityDropItem(new ItemStack(Items.experience_bottle), 0);
 	}
 
 }

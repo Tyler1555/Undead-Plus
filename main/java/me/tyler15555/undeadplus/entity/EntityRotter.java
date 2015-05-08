@@ -93,7 +93,7 @@ public class EntityRotter extends EntityMob implements IClassicEntity {
 	public void dropRareDrop(int i) {
 		Random random = new Random();
 		if(random.nextInt(4) <= 3) {
-			dropItem(Items.reeds, 1);
+			this.entityDropItem(new ItemStack(Items.reeds), 0);
 		}
 	}
 }
