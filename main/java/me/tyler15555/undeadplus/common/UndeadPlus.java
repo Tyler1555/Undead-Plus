@@ -9,7 +9,9 @@ import me.tyler15555.undeadplus.biome.BiomeGrave;
 import me.tyler15555.undeadplus.entity.EntityBrute;
 import me.tyler15555.undeadplus.entity.EntityBuccaneer;
 import me.tyler15555.undeadplus.entity.EntityCoolZombie;
+import me.tyler15555.undeadplus.entity.EntityCordie;
 import me.tyler15555.undeadplus.entity.EntityCrawler;
+import me.tyler15555.undeadplus.entity.EntityFlare;
 import me.tyler15555.undeadplus.entity.EntityFrostbite;
 import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityInfectedZombie;
@@ -19,6 +21,7 @@ import me.tyler15555.undeadplus.entity.EntityMaggot;
 import me.tyler15555.undeadplus.entity.EntityMudman;
 import me.tyler15555.undeadplus.entity.EntityMummy;
 import me.tyler15555.undeadplus.entity.EntityRotter;
+import me.tyler15555.undeadplus.entity.EntityScorcher;
 import me.tyler15555.undeadplus.entity.EntityThinker;
 import me.tyler15555.undeadplus.entity.EntityWidower;
 import me.tyler15555.undeadplus.entity.EntityZkuba;
@@ -45,7 +48,7 @@ import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
-@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.3a")
+@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.4a")
 public class UndeadPlus {
 
 	@Instance("UndeadPlus")
@@ -100,6 +103,9 @@ public class UndeadPlus {
 		EntityRegistry.registerGlobalEntityID(EntityKnight.class, "UP-Knight", EntityRegistry.findGlobalUniqueEntityId(), 0xc5c5c5, 0xebebeb);
 		EntityRegistry.registerGlobalEntityID(EntityBrute.class, "UP-Brute", EntityRegistry.findGlobalUniqueEntityId(), 0x00afaf, 0x676f65);
 		EntityRegistry.registerGlobalEntityID(EntityZkuba.class, "UP-Zkuba", EntityRegistry.findGlobalUniqueEntityId(), 0xe4e0d3, 0xd0b600);
+		EntityRegistry.registerGlobalEntityID(EntityCordie.class, "UP-Cordie", EntityRegistry.findGlobalUniqueEntityId(), 0x004807, 0x411447);
+		EntityRegistry.registerGlobalEntityID(EntityFlare.class, "UP-Flare", EntityRegistry.findGlobalUniqueEntityId(), 0x964646, 0xb80000);
+		EntityRegistry.registerGlobalEntityID(EntityScorcher.class, "UP-Scorcher", EntityRegistry.findGlobalUniqueEntityId(), 0xa42c00, 0x350000);
 		
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
@@ -117,6 +123,10 @@ public class UndeadPlus {
 		EntityRegistry.addSpawn(EntityKnight.class, ConfigHandler.knightSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.HILLS));
 		EntityRegistry.addSpawn(EntityBrute.class, ConfigHandler.bruteSpawnRate, 2, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SWAMP));
 		EntityRegistry.addSpawn(EntityZkuba.class, ConfigHandler.zkubaSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.WATER));
+		EntityRegistry.addSpawn(EntityCordie.class, ConfigHandler.cordieSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.JUNGLE));
+		EntityRegistry.addSpawn(EntityCordie.class, ConfigHandler.cordieSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.MUSHROOM));
+		EntityRegistry.addSpawn(EntityFlare.class, ConfigHandler.flareSpawnRate, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.NETHER));
+		EntityRegistry.addSpawn(EntityScorcher.class, ConfigHandler.scorcherSpawnRate, 1, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.NETHER));
 		
 		MinecraftForge.EVENT_BUS.register(new UndeadEventHandler());
 		
