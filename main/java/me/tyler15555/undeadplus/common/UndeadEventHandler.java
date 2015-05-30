@@ -6,7 +6,6 @@ import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityKnight;
 import me.tyler15555.undeadplus.entity.EntityThinker;
 import me.tyler15555.undeadplus.util.ConfigHandler;
-import me.tyler15555.undeadplus.util.IClassicEntity;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.EnumDifficulty;
@@ -46,17 +45,6 @@ public class UndeadEventHandler {
 		}
 	}
 	
-	@SubscribeEvent
-	public void onLivingDeath(LivingDeathEvent event) {
-		if(event.entity instanceof IClassicEntity) {
-			if(ConfigHandler.rareDropChance == -1) {
-				return;
-			} else if(random.nextInt(100) >= ConfigHandler.rareDropChance && FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER) {
-				IClassicEntity entity = (IClassicEntity)event.entity;
-				entity.dropRareDrop(ConfigHandler.rareDropChance);
-			}
-		}
-	}
 	//Because using entityInit() will prevent the zombie from spawning at all for some reason if I try to add armor, this has to be done instead
 	@SubscribeEvent
 	public void onEntityJoinWorld(EntityJoinWorldEvent event) {

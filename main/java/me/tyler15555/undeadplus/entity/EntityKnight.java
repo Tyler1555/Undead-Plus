@@ -1,6 +1,5 @@
 package me.tyler15555.undeadplus.entity;
 
-import me.tyler15555.undeadplus.util.IClassicEntity;
 import me.tyler15555.undeadplus.util.UPConstants;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -21,7 +20,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class EntityKnight extends EntityMob implements IClassicEntity {
+public class EntityKnight extends EntityMob {
 
 	public EntityKnight(World worldIn) {
 		super(worldIn);

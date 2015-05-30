@@ -1,7 +1,6 @@
 package me.tyler15555.undeadplus.entity;
 
 import me.tyler15555.undeadplus.util.ConfigHandler;
-import me.tyler15555.undeadplus.util.IClassicEntity;
 import me.tyler15555.undeadplus.util.UPConstants;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -25,7 +24,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class EntityZkuba extends EntityMob implements IClassicEntity {
+public class EntityZkuba extends EntityMob {
 
 	public EntityZkuba(World worldIn) {
 		super(worldIn);

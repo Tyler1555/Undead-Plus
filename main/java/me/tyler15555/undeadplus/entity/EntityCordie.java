@@ -1,9 +1,11 @@
 package me.tyler15555.undeadplus.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import me.tyler15555.undeadplus.util.UPAchievements;
 import me.tyler15555.undeadplus.util.UPConstants;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
@@ -16,21 +18,24 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
-import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
 
-public class EntityMummy extends EntityMob {
+public class EntityCordie extends EntityMob implements IShearable {
 
-	public EntityMummy(World worldIn) {
+	private boolean hasMushroom;
+	
+	public EntityCordie(World worldIn) {
 		super(worldIn);
 		tasks.addTask(0, new EntityAISwimming(this));
         tasks.addTask(1, new EntityAIBreakDoor(this));
@@ -49,53 +54,30 @@ public class EntityMummy extends EntityMob {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.maxHealth).setBaseValue(16);
-		this.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.attackDamage).setBaseValue(4);
-		this.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.movementSpeed).setBaseValue(0.275D);
+		this.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.maxHealth).setBaseValue(16D);
+		this.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.attackDamage).setBaseValue(6);
+		this.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.movementSpeed).setBaseValue(UPConstants.BASE_MOVESPEED * 0.38);
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound tag) {
+		super.writeToNBT(tag);
+		tag.setBoolean("HasMushroom", hasMushroom);
 	}
 	
 	@Override
-	public boolean attackEntityAsMob(Entity entity)  {
-        if(super.attackEntityAsMob(entity))
-        {
-            if(entity instanceof EntityLiving)
-            {
-                byte byte0 = 0;
-                	if(worldObj.difficultySetting == EnumDifficulty.EASY) {
-                		byte0 = 7;
-                	}
-                    if(worldObj.difficultySetting == EnumDifficulty.NORMAL) {
-                        byte0 = 8;
-                    } else
-                    if(worldObj.difficultySetting == EnumDifficulty.HARD) {
-                        byte0 = 9;
-                    }
-                
-                if(byte0 > 0)
-                {
-                    ((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.blindness.id, byte0 * 20));
-                    ((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.confusion.id, byte0 * 20));
-                }
-            }
-            return true;
-        } else
-        {
-            return false;
-        }
-    }
+	public void readFromNBT(NBTTagCompound tag) {
+		super.readFromNBT(tag);
+		this.hasMushroom = tag.getBoolean("HashMushroom");
+	}
 	
 	@Override
 	protected void dropFewItems(boolean flag, int i) {
         int j = rand.nextInt(3 + i);
         for (int k = 0; k < j; k++) {
-            dropItem(Items.gold_nugget, 1);
-        }
-        
-        int j1 = rand.nextInt(3 + i);
-        for (int k = 0; k < j1; k++) {
-            dropItem(Item.getItemFromBlock(Blocks.sand), 1);
-        }
-	}
+            this.entityDropItem(new ItemStack(Items.rotten_flesh), 0);
+        }        
+    }
 	
 	@Override
 	public void onLivingUpdate() {
@@ -105,32 +87,45 @@ public class EntityMummy extends EntityMob {
 	
 	@Override
 	protected String getLivingSound() {
-		return "undeadplus:mummymoan";
-	}
+        return "undeadplus:cordiemoan";
+    }
 
 	@Override
-	protected String getHurtSound() {
-		return "undeadplus:mummyhit";
-	}
+    protected String getHurtSound() {
+        return "undeadplus:cordiehit";
+    }
 
 	@Override
-	protected String getDeathSound() {
-		return "undeadplus:mummydie";
-	} 
+    protected String getDeathSound() {
+        return "undeadplus:cordiedie";
+    }
 	
 	@Override
 	public void onDeath(DamageSource damagesource) {
 		if (damagesource.getEntity() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)damagesource.getEntity();
-			player.addStat(UPAchievements.mummyKill, 1);
+			//player.addStat(UPAchievements.cordieKill, 1);
 		}
 
 		super.onDeath(damagesource);
 	}
 
 	@Override
-	public void dropRareDrop(int i) {
-		this.entityDropItem(new ItemStack(Blocks.wool), 0);
-	} 
+	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z) {
+		return this.hasMushroom;
+	}
+
+	@Override
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
+		ArrayList<ItemStack> ret = new ArrayList();
+		ret.add(new ItemStack(Item.getItemFromBlock(Blocks.red_mushroom)));
+		
+		EntityZombie zombie = new EntityZombie(this.worldObj);
+		zombie.copyLocationAndAnglesFrom(this);
+		this.worldObj.spawnEntityInWorld(zombie);
+		this.worldObj.spawnParticle("explosionlarge", posX, posY + (double)(height / 2.0F), posZ, 0.0D, 0.0D, 0.0D);
+		this.worldObj.removeEntity(this);
+		return ret;
+	}
 
 }

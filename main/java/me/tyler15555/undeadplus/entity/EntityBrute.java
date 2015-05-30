@@ -1,6 +1,5 @@
 package me.tyler15555.undeadplus.entity;
 
-import me.tyler15555.undeadplus.util.IClassicEntity;
 import me.tyler15555.undeadplus.util.UPAchievements;
 import me.tyler15555.undeadplus.util.UPConstants;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -22,7 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityBrute extends EntityMob implements IClassicEntity {
+public class EntityBrute extends EntityMob {
 
 	public EntityBrute(World worldIn) {
 		super(worldIn);

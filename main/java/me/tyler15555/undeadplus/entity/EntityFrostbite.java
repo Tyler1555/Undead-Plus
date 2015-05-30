@@ -1,6 +1,5 @@
 package me.tyler15555.undeadplus.entity;
 
-import me.tyler15555.undeadplus.util.IClassicEntity;
 import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -27,7 +26,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityFrostbite extends EntityMob implements IClassicEntity {
+public class EntityFrostbite extends EntityMob {
 
 	public EntityFrostbite(World worldIn) {
 		super(worldIn);

@@ -1,6 +1,5 @@
 package me.tyler15555.undeadplus.entity;
 
-import me.tyler15555.undeadplus.util.IClassicEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
@@ -21,7 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityGhoul extends EntityMob implements IClassicEntity {
+public class EntityGhoul extends EntityMob {
 
 	public EntityGhoul(World worldIn) {
 		super(worldIn);

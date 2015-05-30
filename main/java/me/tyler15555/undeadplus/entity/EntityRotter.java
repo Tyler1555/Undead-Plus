@@ -3,7 +3,6 @@ package me.tyler15555.undeadplus.entity;
 import java.util.Random;
 
 import me.tyler15555.undeadplus.util.ConfigHandler;
-import me.tyler15555.undeadplus.util.IClassicEntity;
 import me.tyler15555.undeadplus.util.UPAchievements;
 import me.tyler15555.undeadplus.util.UPConstants;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,7 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityRotter extends EntityMob implements IClassicEntity {
+public class EntityRotter extends EntityMob {
 
 	public EntityRotter(World worldIn) {
 		super(worldIn);

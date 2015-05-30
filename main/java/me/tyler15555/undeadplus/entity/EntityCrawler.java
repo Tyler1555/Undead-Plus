@@ -1,6 +1,5 @@
 package me.tyler15555.undeadplus.entity;
 
-import me.tyler15555.undeadplus.util.IClassicEntity;
 import me.tyler15555.undeadplus.util.UPConstants;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,7 +23,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class EntityCrawler extends EntityMob implements IClassicEntity {
+public class EntityCrawler extends EntityMob {
 
 	public EntityCrawler(World worldIn) {
 		super(worldIn);

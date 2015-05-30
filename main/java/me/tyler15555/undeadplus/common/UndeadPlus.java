@@ -46,7 +46,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 
-@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.3.1ac")
+@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.3.2ac")
 public class UndeadPlus {
 
 	@Instance("UndeadPlus")

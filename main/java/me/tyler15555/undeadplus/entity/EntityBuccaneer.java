@@ -1,6 +1,5 @@
 package me.tyler15555.undeadplus.entity;
 
-import me.tyler15555.undeadplus.util.IClassicEntity;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -20,7 +19,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class EntityBuccaneer extends EntityMob implements IClassicEntity {
+public class EntityBuccaneer extends EntityMob {
 
 	public EntityBuccaneer(World worldIn) {
 		super(worldIn);
