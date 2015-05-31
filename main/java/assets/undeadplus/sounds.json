@@ -201,5 +201,68 @@
 "name": "brutedie",
 "stream": "true"
 }]
+},
+"cordiemoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "cordiemoan",
+"stream": "true"
+}]
+},
+"cordiehit": {
+"catagory": "hostile",
+"sounds": [{
+"name": "cordiehit",
+"stream": "true"
+}]
+},
+"cordiedie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "cordiedie",
+"stream": "true"
+}]
+},
+"flaremoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "flaregrowl",
+"stream": "true"
+}]
+},
+"flarehurt": {
+"catagory": "hostile",
+"sounds": [{
+"name": "flarehit",
+"stream": "true"
+}]
+},
+"flaredie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "flaredie",
+"stream": "true"
+}]
+},
+"scorchmoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "scorchernoisething",
+"stream": "true"
+}]
+},
+"scorchhit": {
+"catagory": "hostile",
+"sounds": [{
+"name": "scorcherhit",
+"stream": "true"
+}]
+},
+"scorchdie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "scorcherdie",
+"stream": "true"
+}]
 }
 }

@@ -6,7 +6,9 @@ import me.tyler15555.undeadplus.biome.BiomeGrave;
 import me.tyler15555.undeadplus.entity.EntityBrute;
 import me.tyler15555.undeadplus.entity.EntityBuccaneer;
 import me.tyler15555.undeadplus.entity.EntityCoolZombie;
+import me.tyler15555.undeadplus.entity.EntityCordie;
 import me.tyler15555.undeadplus.entity.EntityCrawler;
+import me.tyler15555.undeadplus.entity.EntityFlare;
 import me.tyler15555.undeadplus.entity.EntityFrostbite;
 import me.tyler15555.undeadplus.entity.EntityGhoul;
 import me.tyler15555.undeadplus.entity.EntityInfectedZombie;
@@ -46,7 +48,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 
-@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.3.2ac")
+@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.4ac")
 public class UndeadPlus {
 
 	@Instance("UndeadPlus")
@@ -101,6 +103,8 @@ public class UndeadPlus {
 		EntityRegistry.registerGlobalEntityID(EntityKnight.class, "UP-Knight", EntityRegistry.findGlobalUniqueEntityId(), 0xc5c5c5, 0xebebeb);
 		EntityRegistry.registerGlobalEntityID(EntityBrute.class, "UP-Brute", EntityRegistry.findGlobalUniqueEntityId(), 0x00afaf, 0x676f65);
 		EntityRegistry.registerGlobalEntityID(EntityZkuba.class, "UP-Zkuba", EntityRegistry.findGlobalUniqueEntityId(), 0xe4e0d3, 0xd0b600);
+		EntityRegistry.registerGlobalEntityID(EntityCordie.class, "UP-Cordie", EntityRegistry.findGlobalUniqueEntityId(), 0x004807, 0x411447);
+		EntityRegistry.registerGlobalEntityID(EntityFlare.class, "UP-Flare", EntityRegistry.findGlobalUniqueEntityId(), 0x964646, 0xb80000);
 		
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.FOREST));
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.PLAINS));
