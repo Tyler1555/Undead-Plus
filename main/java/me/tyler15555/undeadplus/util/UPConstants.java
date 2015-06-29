@@ -13,7 +13,7 @@ public class UPConstants {
 
 	public static final String NAME = "Undead+";
 	//This is here to try to get the mobs to reflect their old movespeed values. Not sure if this is accurate though
-	public static final double BASE_MOVESPEED = 0.7;
+	public static final double BASE_MOVESPEED = 0.10000000149011612D;
 	
 	//So I don't have to write the same code a billion times
 	public static void burnInSunlight(World world, EntityMob entity) {

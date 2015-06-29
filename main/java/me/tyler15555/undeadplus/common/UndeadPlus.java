@@ -2,9 +2,6 @@ package me.tyler15555.undeadplus.common;
 
 import java.awt.Color;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.Logger;
-
 import me.tyler15555.undeadplus.biome.BiomeGrave;
 import me.tyler15555.undeadplus.entity.EntityBrute;
 import me.tyler15555.undeadplus.entity.EntityBuccaneer;
@@ -20,16 +17,18 @@ import me.tyler15555.undeadplus.entity.EntityLimb;
 import me.tyler15555.undeadplus.entity.EntityMaggot;
 import me.tyler15555.undeadplus.entity.EntityMudman;
 import me.tyler15555.undeadplus.entity.EntityMummy;
+import me.tyler15555.undeadplus.entity.EntityPoisonBall;
 import me.tyler15555.undeadplus.entity.EntityRotter;
 import me.tyler15555.undeadplus.entity.EntityScorcher;
 import me.tyler15555.undeadplus.entity.EntityThinker;
+import me.tyler15555.undeadplus.entity.EntityVent;
 import me.tyler15555.undeadplus.entity.EntityWidower;
 import me.tyler15555.undeadplus.entity.EntityZkuba;
 import me.tyler15555.undeadplus.entity.EntityZombrine;
+import me.tyler15555.undeadplus.item.UPItems;
 import me.tyler15555.undeadplus.util.ConfigHandler;
 import me.tyler15555.undeadplus.util.UPAchievements;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -47,8 +46,12 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.4a")
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.Logger;
+
+@Mod(name = "Undead+", modid = "UndeadPlus", version = "1.5a")
 public class UndeadPlus {
 
 	@Instance("UndeadPlus")
@@ -69,6 +72,8 @@ public class UndeadPlus {
 		AchievementPage.registerAchievementPage(UPAchievements.upPage);
 		
 		FMLInterModComms.sendRuntimeMessage("UndeadPlus", "VersionChecker", "addVersionCheck", "https://raw.githubusercontent.com/Tyler1555/Undead-Plus/master/version.json");
+		
+		GameRegistry.registerItem(UPItems.poisonBall, "poisonBall");
 	}
 	
 	@EventHandler
@@ -106,6 +111,9 @@ public class UndeadPlus {
 		EntityRegistry.registerGlobalEntityID(EntityCordie.class, "UP-Cordie", EntityRegistry.findGlobalUniqueEntityId(), 0x004807, 0x411447);
 		EntityRegistry.registerGlobalEntityID(EntityFlare.class, "UP-Flare", EntityRegistry.findGlobalUniqueEntityId(), 0x964646, 0xb80000);
 		EntityRegistry.registerGlobalEntityID(EntityScorcher.class, "UP-Scorcher", EntityRegistry.findGlobalUniqueEntityId(), 0xa42c00, 0x350000);
+		EntityRegistry.registerGlobalEntityID(EntityPoisonBall.class, "UP-PoisonBall", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityPoisonBall.class, "PoisonBall", 0, this, 64, 10, true);
+		EntityRegistry.registerGlobalEntityID(EntityVent.class, "UP-Vent", EntityRegistry.findGlobalUniqueEntityId(), 0x616b2c, 0x364b0c);
 		
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.FOREST));
 		EntityRegistry.addSpawn(EntityMaggot.class, ConfigHandler.maggotSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.PLAINS));
@@ -127,6 +135,7 @@ public class UndeadPlus {
 		EntityRegistry.addSpawn(EntityCordie.class, ConfigHandler.cordieSpawnRate, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.MUSHROOM));
 		EntityRegistry.addSpawn(EntityFlare.class, ConfigHandler.flareSpawnRate, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.NETHER));
 		EntityRegistry.addSpawn(EntityScorcher.class, ConfigHandler.scorcherSpawnRate, 1, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.NETHER));
+		EntityRegistry.addSpawn(EntityVent.class, ConfigHandler.ventSpawnRate, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomesForType(Type.SWAMP));
 		
 		MinecraftForge.EVENT_BUS.register(new UndeadEventHandler());
 		

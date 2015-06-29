@@ -29,6 +29,7 @@ public class ConfigHandler {
 	public static int cordieSpawnRate;
 	public static int flareSpawnRate;
 	public static int scorcherSpawnRate;
+	public static int ventSpawnRate;
 	public static int graveBiomeID;
 	public static int rareDropChance;
 	public static boolean enableGraveBiome;
@@ -57,6 +58,7 @@ public class ConfigHandler {
 			cordieSpawnRate = config.getInt("CordieSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a Coride spawning");
 			flareSpawnRate = config.getInt("FlareSpawnRate", "Spawning", 200, 0, Integer.MAX_VALUE, "The chance of a Flare spawning. Note: 200 was the value taken from the original mod");
 			scorcherSpawnRate = config.getInt("ScorcherSpawnRate", "Spawning", 200, 0, Integer.MAX_VALUE, "The chancec of a scorcher spawning. Note: The high value is taken from the original mod");
+			ventSpawnRate = config.getInt("VentSpawnRate", "Spawning", 10, 0, Integer.MAX_VALUE, "The chance of a vent spawning");
 			graveBiomeID = config.getInt("GraveBiomeID", "IDs", 30, Integer.MIN_VALUE, Integer.MAX_VALUE, "The Grave Biome's ID");
 			rareDropChance = config.getInt("RareDropChance", "General", 50, -1, 100, "The chance of a zombie dropping rare loot, higher number means lower chance. Set to -1 to disable");
 			enableGraveBiome = config.getBoolean("EnableGraveBiome", "General", true, "Whether or not to enable the grave biome. This could screw up some mod interactions");

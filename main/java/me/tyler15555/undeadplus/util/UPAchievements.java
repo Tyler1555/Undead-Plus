@@ -1,5 +1,6 @@
 package me.tyler15555.undeadplus.util;
 
+import me.tyler15555.undeadplus.item.UPItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.stats.Achievement;
@@ -18,7 +19,8 @@ public class UPAchievements {
 	public static Achievement bruteKill = new Achievement("bruteKill", "bruteKill", -3, 7, Items.bone, null);
 	public static Achievement cordieKill = new Achievement("cordieKill", "cordieKill", -5, 10, Blocks.red_mushroom, null);
 	public static Achievement scorchKill = new Achievement("scorchKill", "scorchKill", 10 ,-3, Items.water_bucket, null);
+	public static Achievement ventKill = new Achievement("ventKill", "ventKill", 3, -5, UPItems.poisonBall, null);
 	
-	public static AchievementPage upPage = new AchievementPage("Undead+", thinkerKill, coolKill, mummyKill, rotterKill, frostKill, bruteKill, cordieKill, scorchKill);
+	public static AchievementPage upPage = new AchievementPage("Undead+", thinkerKill, coolKill, mummyKill, rotterKill, frostKill, bruteKill, cordieKill, scorchKill, ventKill);
 
 }

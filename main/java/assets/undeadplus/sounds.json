@@ -264,5 +264,26 @@
 "name": "scorcherdie",
 "stream": "true"
 }]
+},
+"ventmoan": {
+"catagory": "hostile",
+"sounds": [{
+"name": "ventmoan",
+"stream": "true"
+}]
+},
+"venthurt": {
+"catagory": "hostile",
+"sounds": [{
+"name": "venthurt",
+"stream": "true"
+}]
+},
+"ventdie": {
+"catagory": "hostile",
+"sounds": [{
+"name": "ventdie",
+"stream": "true"
+}]
 }
 }
